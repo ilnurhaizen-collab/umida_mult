@@ -1523,6 +1523,36 @@ header#top {
   margin-right: auto;
 }
 
+.pay-note + .pay-note {
+  margin-top: 12px;
+}
+
+.pay-note .btn {
+  margin: 12px 0 10px;
+}
+
+/* Срок доступа под ценой тарифа */
+.pcost small {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+.price.feat .pcost small {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+/* Метки тарифа и «записывается» в заголовке модуля программы */
+.acc-head .mod {
+  display: inline-block;
+  margin: 4px 0 0 6px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
 @media (max-width: 860px) {
   .prices {
     grid-template-columns: 1fr;
@@ -1540,6 +1570,14 @@ header#top {
 
   .prices {
     gap: 20px;
+  }
+
+  /* Длинное название тарифа на кнопке не должно распирать карточку шире экрана */
+  .price .btn {
+    padding-left: 20px;
+    padding-right: 20px;
+    white-space: normal;
+    text-align: center;
   }
 }
 
@@ -1597,6 +1635,14 @@ header#top {
 @media (max-width: 600px) {
   .final {
     padding: 40px 22px;
+  }
+
+  /* Кнопка не должна уходить за край блока на телефоне */
+  .final .btn-lg {
+    padding-left: 24px;
+    padding-right: 24px;
+    white-space: normal;
+    text-align: center;
   }
 }
 
