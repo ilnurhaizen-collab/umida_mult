@@ -1346,6 +1346,15 @@ header#top {
   margin-bottom: 28px;
 }
 
+/* нечётное число отзывов: последний по центру, а не сиротой слева */
+@media (min-width: 761px) {
+  .quotes .rcard:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 12px);
+  }
+}
+
 .rcard {
   background: var(--white);
   border-radius: var(--radius-md);
