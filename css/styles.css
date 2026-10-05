@@ -1922,3 +1922,42 @@ footer .logo {
     display: none;
   }
 }
+
+/* ============================================
+   Цены из прайса и скидка «Студии» (05.10.2026)
+   ============================================ */
+
+/* «сейчас вместо 49 000 ₽» под ценой: обычная цена зачёркнута и приглушена. Без значка «скидка», процентов и
+   таймеров — обычная цена настоящая, она в оферте. */
+.pcost .pwas s {
+  text-decoration-thickness: 2px;
+}
+
+/* .pcost small — display:block, а он сильнее атрибута hidden: без этого скрытая строка была бы видна */
+.pcost small[hidden] {
+  display: none;
+}
+
+/* Пока цена «Студии» едет из прайса или прайс не ответил — тем же местом, мелко */
+.pcost .pcost-wait {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+/* Липкая шапка: якорь #studiya не должен уезжать под неё */
+#studiya {
+  scroll-margin-top: 80px;
+}
+
+.pnote {
+  margin: 12px 0 0;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  text-align: center;
+}
+
+.pnote a {
+  color: var(--strawberry-dark);
+}
