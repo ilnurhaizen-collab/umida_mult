@@ -2035,3 +2035,52 @@ footer .logo {
     padding-bottom: 88px;
   }
 }
+
+/* Сравнение в два столбца: «было» и «стало» */
+.cards-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.cards-2 .pros {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.cards-2 .pros li {
+  position: relative;
+  padding-left: 18px;
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+.cards-2 .pros li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--strawberry);
+}
+
+.mnote {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+@media (max-width: 860px) {
+  .cards-2 {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
