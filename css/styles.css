@@ -1978,3 +1978,10 @@ footer .logo {
   color: var(--text-light);
   margin: 14px 0 0;
 }
+
+/* Вводная строка модуля — продаёт выгоду до списка уроков */
+.prog-lead {
+  font-size: 0.95rem;
+  color: var(--text);
+  margin: 4px 0 12px;
+}
