@@ -1985,3 +1985,53 @@ footer .logo {
   color: var(--text);
   margin: 4px 0 12px;
 }
+
+/* Источники под блоком с цифрами рынка */
+.src {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.src a {
+  color: var(--strawberry-dark);
+}
+
+/* Липкая кнопка на телефоне: цена всегда в одно касание */
+.sticky-cta {
+  display: none;
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: calc(14px + env(safe-area-inset-bottom));
+  z-index: 95;
+  padding: 15px 20px;
+  border-radius: 100px;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--strawberry), var(--strawberry-dark));
+  box-shadow: 0 10px 28px -10px rgba(225, 29, 84, 0.65);
+  transition: opacity var(--transition);
+}
+
+/* Тарифы на экране — кнопка не нужна, там свои */
+.sticky-cta[hidden] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 860px) {
+  .sticky-cta {
+    display: block;
+  }
+
+  body {
+    padding-bottom: 88px;
+  }
+}

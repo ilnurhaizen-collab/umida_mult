@@ -77,4 +77,14 @@
   } catch (e) {
     fallback();
   }
+  /* Липкая кнопка прячется, когда тарифы на экране: там и так есть кнопки у каждой карточки */
+  try {
+    var cta = document.querySelector('.sticky-cta');
+    var prices = document.getElementById('prices');
+    if (cta && prices && typeof IntersectionObserver === 'function') {
+      new IntersectionObserver(function (entries) {
+        cta.hidden = entries.some(function (e) { return e.isIntersecting; });
+      }, { threshold: 0 }).observe(prices);
+    }
+  } catch (e) { /* кнопка просто останется видимой */ }
 })();
