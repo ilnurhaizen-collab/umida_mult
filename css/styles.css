@@ -1961,3 +1961,20 @@ footer .logo {
 .pnote a {
   color: var(--strawberry-dark);
 }
+
+/* Примечания без галочки: «*» — пояснение к тарифу, а не плюшка (правка Анны 06.10) */
+.pstar {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin: -16px 0 24px;
+}
+
+.price.feat .pstar {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.prog-note {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin: 14px 0 0;
+}
