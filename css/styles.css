@@ -2277,3 +2277,82 @@ footer .logo {
     left: 12px;
   }
 }
+
+/* Живой кабинет: экраны телефона, снятые на стенде с прод-кодом кабинета (08.10) */
+.shots {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 248px));
+  justify-content: center;
+  gap: 32px;
+}
+
+.shots.two {
+  grid-template-columns: repeat(2, minmax(0, 248px));
+}
+
+.shot {
+  margin: 0;
+  text-align: center;
+}
+
+.shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 7px solid var(--text);
+  border-radius: 32px;
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.shot figcaption {
+  margin-top: 14px;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.shots-text {
+  max-width: 640px;
+  margin: 40px auto 34px;
+  text-align: center;
+  font-size: 1.08rem;
+}
+
+/* На телефоне — лента, которую листают пальцем: соседний экран выглядывает справа */
+@media (max-width: 760px) {
+  .shots,
+  .shots.two {
+    display: flex;
+    justify-content: flex-start;
+    gap: 16px;
+    margin: 0 -24px;
+    padding: 6px 24px 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 24px;
+    scrollbar-width: none;
+  }
+
+  .shots::-webkit-scrollbar {
+    display: none;
+  }
+
+  .shot {
+    flex: 0 0 62%;
+    max-width: 250px;
+    scroll-snap-align: start;
+  }
+
+  .shot img {
+    border-width: 5px;
+    border-radius: 26px;
+  }
+
+  .shots-text {
+    margin: 26px 0 22px;
+    text-align: left;
+    font-size: 1rem;
+  }
+}
