@@ -2356,3 +2356,158 @@ footer .logo {
     font-size: 1rem;
   }
 }
+
+/* До 600px поля страницы 16px (.wrap) — лента экранов выходит ровно на них, иначе страница шире экрана на 8px */
+@media (max-width: 600px) {
+  .shots,
+  .shots.two {
+    margin: 0 -16px;
+    padding: 6px 16px 14px;
+    scroll-padding-inline: 16px;
+  }
+}
+
+/* Обход 08.10 на 360–414 и 768 px */
+/* Цена в липкой полосе не переносится: «от 2 900 ₽» в одну строку */
+.sticky-cta .sc-txt b {
+  white-space: nowrap;
+}
+
+/* «💬 Есть вопрос? Напишите в бот» под тарифами не шире колонки на узком телефоне */
+.pay-note .btn {
+  max-width: 100%;
+  white-space: normal;
+}
+
+/* Ярлыки над заголовками («Нейросети · видео · творчество», «Начните, когда будете готовы») — в одну строку на телефоне */
+@media (max-width: 420px) {
+  .eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    padding: 7px 12px;
+  }
+
+  /* Звёздочка и клубника в финальном блоке — в углы, чтобы не ложились на ярлык и строку про бот */
+  .final .prop.spin {
+    top: 6px !important;
+    right: 8px !important;
+    width: 30px !important;
+  }
+
+  .final .prop.spin2 {
+    bottom: 6px !important;
+    left: 8px !important;
+    width: 26px !important;
+  }
+}
+
+/* Выдвижное меню планшета (681–860 px) стояло за правым краем (translateX(100%)) — страница была вдвое шире экрана.
+   Закрытое меню теперь на месте, но невидимо, и проявляется. Обрезать корень (overflow на html) нельзя: ломается
+   липкая шапка (header#top { position: sticky }) — проверено 08.10. */
+@media (min-width: 681px) and (max-width: 860px) {
+  .nav-links {
+    transform: none;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+  }
+
+  .nav-links.is-open {
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 0.25s ease;
+  }
+}
+
+/* Планшет 761–960 px: четыре плашки в ряд не помещались («с / телефона», «4 / модуля») — две колонки, как на телефоне */
+@media (min-width: 761px) and (max-width: 960px) {
+  .proof {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Шапка 861–1100 px: логотип и пункты меню не переносятся на две строки */
+@media (min-width: 861px) and (max-width: 1100px) {
+  .nav-links {
+    gap: 18px;
+    font-size: 0.88rem;
+  }
+
+  .nav-links a,
+  .logo > span:not(.mark) {
+    white-space: nowrap;
+  }
+}
+
+/* 861–960 px: меню ещё в строку, а места нет — первый пункт («Результат») прячем, кнопка уже */
+@media (min-width: 861px) and (max-width: 960px) {
+  .nav-links a:first-child {
+    display: none;
+  }
+
+  .nav-cta {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* Самые узкие телефоны (до 360 px, iPhone SE первого поколения — 320): название «Самостоятельный» шире карточки,
+   кнопка липкой полосы уезжала за край */
+@media (max-width: 360px) {
+  .pname {
+    font-size: 1.2rem;
+  }
+
+  .sticky-cta {
+    padding: 8px 8px 8px 14px;
+    gap: 8px;
+  }
+
+  .sticky-cta .sc-txt b {
+    font-size: 0.88rem;
+  }
+
+  .sticky-cta .sc-btn {
+    padding: 11px 14px;
+    font-size: 0.78rem;
+  }
+}
+
+/* Две колонки тарифов (861 px и шире) не распираются длинной кнопкой «Оплатить «Самостоятельный»»: на 861–940 px
+   правая карточка уезжала за край. Кнопка переносится, как на телефоне */
+@media (min-width: 861px) {
+  .prices {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.price .btn {
+  white-space: normal;
+  text-align: center;
+}
+
+@media (max-width: 860px) {
+  .prices {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 340px) {
+  .eyebrow {
+    font-size: 0.62rem;
+    letter-spacing: 0.04em;
+    padding: 6px 10px;
+  }
+
+  .proof .num {
+    font-size: 0.9rem;
+  }
+}
+
+/* Переход по пункту меню: ярлык над заголовком секции не уходит под липкую шапку */
+section[id] {
+  scroll-margin-top: 48px;
+}
