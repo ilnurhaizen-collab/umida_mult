@@ -759,103 +759,366 @@ header#top {
   font-size: 1.05rem;
 }
 
-.gmq {
+/* Герои — ряд с прокруткой (09.10.2026, вместо бегущей ленты): листается пальцем и стрелками, по нажатию — большой
+   просмотр. Карточки по краям не режутся: крайние берут свободное место авто-отступом, а при переполнении он 0. */
+.hrail-wrap {
   position: relative;
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
 }
 
-.gmq-track {
+.hrail {
   display: flex;
-  gap: 24px;
-  width: max-content;
-  animation: gscroll 52s linear infinite;
+  gap: 22px;
+  margin: 0 -24px;
+  padding: 10px 24px 18px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 24px;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  outline: none;
 }
 
-.gmq:hover .gmq-track {
-  animation-play-state: paused;
+.hrail::-webkit-scrollbar {
+  display: none;
 }
 
-@keyframes gscroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+.hrail:focus-visible {
+  outline: 2px solid var(--strawberry);
+  outline-offset: -2px;
+  border-radius: 24px;
 }
 
-.gcard {
+.hcard {
+  flex: 0 0 auto;
+  width: 206px;
+  margin: 0;
+  scroll-snap-align: start;
+}
+
+.hcard:first-child {
+  margin-left: auto;
+}
+
+.hcard:last-child {
+  margin-right: auto;
+}
+
+.hcard-pic {
   position: relative;
-  flex: none;
-  width: 232px;
-  aspect-ratio: 360 / 590;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 22px;
   overflow: hidden;
   background: radial-gradient(120% 90% at 50% 18%, #241420, #120a10);
-  box-shadow: 0 24px 50px -20px rgba(0, 0, 0, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 22px 44px -22px rgba(42, 19, 32, 0.6);
+  cursor: zoom-in;
   transition: transform var(--transition), box-shadow var(--transition);
 }
 
-.gcard:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: var(--shadow-soft);
-}
-
-.gcard img {
+.hcard-pic img {
+  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center bottom;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
   transition: transform 0.5s ease;
 }
 
-.gcard::after {
-  content: "";
+@media (hover: hover) {
+  .hcard-pic:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .hcard-pic:hover img {
+    transform: scale(1.04);
+  }
+
+  .hcard-pic:hover .zoom-badge,
+  .shot-pic:hover .zoom-badge {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.hcard-pic:focus-visible {
+  outline: 3px solid var(--strawberry);
+  outline-offset: 3px;
+}
+
+/* Значок «рассмотреть»: на компьютере проявляется под курсором, на телефоне виден всегда — нажатие не угадывают */
+.zoom-badge {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(13, 8, 11, 0.95) 0%, rgba(13, 8, 11, 0.55) 14%, transparent 34%);
-  pointer-events: none;
+  right: 10px;
+  bottom: 10px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 6px 16px -6px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity var(--transition), transform var(--transition);
 }
 
-.gcard:hover img {
-  transform: scale(1.06);
+.zoom-badge svg {
+  width: 16px;
+  height: 16px;
 }
 
-.gcard .cap {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 16px 18px;
-  z-index: 1;
-  color: var(--white);
+.hcard-pic:focus-visible .zoom-badge,
+.shot-pic:focus-visible .zoom-badge {
+  opacity: 1;
+  transform: scale(1);
 }
 
-.gcard .t {
+@media (hover: none) {
+  .zoom-badge {
+    opacity: 0.95;
+    transform: none;
+  }
+}
+
+.hcard figcaption {
+  margin-top: 12px;
+  padding: 0 4px;
+}
+
+.hcard figcaption b {
+  display: block;
   font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: 1rem;
-  margin-bottom: 4px;
+  font-size: 0.98rem;
+  line-height: 1.25;
+  color: var(--text);
 }
 
-.gcard .s {
-  font-size: 0.78rem;
+.hcard figcaption span {
+  display: inline-block;
+  margin-top: 7px;
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--strawberry-dark);
+  background: rgba(255, 77, 119, 0.1);
+}
+
+.hrail-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 6px;
+}
+
+.hrail-nav.is-static .hrail-btn {
+  display: none;
+}
+
+@media (hover: none) {
+  .hrail-btn {
+    display: none;
+  }
+}
+
+.hrail-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--strawberry-dark);
+  background: var(--white);
+  box-shadow: var(--shadow-card);
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+.hrail-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.hrail-btn:hover:not(:disabled) {
+  transform: scale(1.08);
+}
+
+.hrail-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.hrail-hint {
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+@media (max-width: 760px) {
+  .hcard {
+    width: 50vw;
+    max-width: 230px;
+  }
+
+  .hrail {
+    gap: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hrail {
+    margin: 0 -16px;
+    padding: 10px 16px 16px;
+    scroll-padding-inline: 16px;
+  }
+}
+
+/* Большой просмотр героя */
+/* Прокрутку держим на body: overflow на html ломает липкую шапку (урок 08.10) */
+body.hv-open {
+  overflow: hidden;
+}
+
+/* Общий сброс отступов (* { margin: 0 }) снимает у <dialog> центрирование — возвращаем его явно */
+dialog.hview {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  height: fit-content;
+  width: min(92vw, 420px);
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: visible;
+  overscroll-behavior: contain;
+}
+
+dialog.hview::backdrop {
+  background: rgba(20, 8, 14, 0.8);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.hv-box {
+  position: relative;
+  padding: 12px 12px 14px;
+  border-radius: 26px;
+  background: var(--white);
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.6);
+}
+
+.hv-img {
+  display: block;
+  width: auto;
+  height: min(62dvh, 640px);
+  max-width: 100%;
+  margin: 0 auto;
+  object-fit: contain;
+  border-radius: 18px;
+  background: #1a1016;
+}
+
+.hv-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  background: var(--white);
+  box-shadow: 0 8px 22px -8px rgba(0, 0, 0, 0.55);
+}
+
+.hv-close svg {
+  width: 20px;
+  height: 20px;
+}
+
+.hv-cap {
+  padding: 12px 6px 0;
+  text-align: center;
+}
+
+.hv-cap b {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  line-height: 1.25;
+  color: var(--text);
+}
+
+.hv-cap span {
+  display: inline-block;
+  margin-top: 7px;
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--strawberry-dark);
+  background: rgba(255, 77, 119, 0.1);
+}
+
+.hv-desc {
+  margin-top: 8px;
+  font-size: 0.92rem;
+  color: var(--text-light);
+}
+
+.hv-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.hv-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--strawberry), var(--strawberry-dark));
+  box-shadow: 0 8px 20px -8px rgba(225, 29, 84, 0.6);
+}
+
+.hv-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.hv-count {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-light);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .gmq-track {
-    animation: none;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: center;
+  html,
+  .hrail {
+    scroll-behavior: auto;
   }
 
-  .gmq {
-    -webkit-mask-image: none;
-    mask-image: none;
+  .hcard-pic,
+  .hcard-pic img {
+    transition: none;
   }
 }
 
@@ -1890,7 +2153,7 @@ footer .logo {
 .step,
 .rcard,
 .price,
-.gcard,
+.hcard-pic,
 .about-stats .st,
 .ic,
 .proof .item {
@@ -2510,4 +2773,130 @@ footer .logo {
 /* Переход по пункту меню: ярлык над заголовком секции не уходит под липкую шапку */
 section[id] {
   scroll-margin-top: 48px;
+}
+
+/* Под тарифами — карточки вместо пяти абзацев (09.10.2026, Умида: «сплошная текстовая портянка») */
+.pay-info {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  max-width: 880px;
+  margin: 34px auto 0;
+}
+
+/* Ссылка «условия ниже ↓» у заголовка тарифов ведёт к возврату; липкая шапка не закрывает карточку */
+#vozvrat {
+  scroll-margin-top: 96px;
+}
+
+.to-refund {
+  color: var(--strawberry-deep);
+  font-weight: 700;
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
+.pi {
+  padding: 22px 22px 20px;
+  border-radius: var(--radius-md);
+  background: var(--white);
+  box-shadow: var(--shadow-card);
+}
+
+.pi-ic {
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.pi-ic svg {
+  width: 22px;
+  height: 22px;
+}
+
+.pi-card { background: linear-gradient(135deg, var(--strawberry) 0%, var(--strawberry-deep) 100%); }
+.pi-back { background: linear-gradient(135deg, #5FBF8E 0%, #2E8B6A 100%); }
+.pi-ai { background: linear-gradient(135deg, #FFC24E 0%, var(--coral) 100%); }
+.pi-up { background: linear-gradient(135deg, var(--coral) 0%, var(--strawberry-dark) 100%); }
+.pi-world { background: linear-gradient(135deg, #7DA7F0 0%, #4C6FD1 100%); }
+.pi-old { background: linear-gradient(135deg, #B58CE8 0%, #7C55C7 100%); }
+
+.pi h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.pi p {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-light);
+}
+
+.pi a {
+  color: var(--strawberry-deep);
+  text-decoration: underline;
+}
+
+.pay-honest {
+  margin-top: 22px;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+  .pay-info {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    margin-top: 26px;
+  }
+
+  .pi {
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr);
+    column-gap: 14px;
+    padding: 16px 16px 15px;
+  }
+
+  .pi-ic {
+    grid-row: span 2;
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    margin-bottom: 0;
+  }
+
+  .pi-ic svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .pi h3 {
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+  }
+}
+
+/* Экраны кабинета тоже открываются крупно (критика UX 09.10: «Видеоурок» со значком ▶ выглядел как поломка) */
+.shot-pic {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  border-radius: 32px;
+  cursor: zoom-in;
+}
+
+.shot-pic .zoom-badge {
+  right: 14px;
+  bottom: 14px;
+}
+
+.shot-pic:focus-visible {
+  outline: 3px solid var(--strawberry);
+  outline-offset: 3px;
 }

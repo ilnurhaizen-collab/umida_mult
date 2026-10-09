@@ -16,7 +16,7 @@
 <meta property="og:description" content="Освой нейросети ChatGPT и Grok и монтаж в CapCut с нуля и создавай свои ИИ-сериалы и мультики. Пошаговый курс от Умиды Нишановой.">
 <meta property="og:image" content="https://umidanishanowa.com/assets/img/hero.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="css/styles.css?v=20261008">
+<link rel="stylesheet" href="css/styles.css?v=20261009">
 </head>
 <body>
 <div class="grain" aria-hidden="true"></div>
@@ -84,18 +84,36 @@
     <h2>Герои моих ИИ-сериалов</h2>
     <p>Такие персонажи набирают миллионы просмотров в коротких роликах. На курсе вы научитесь создавать своих.</p>
   </div>
-  <div class="gmq">
-    <div class="gmq-track">
-      <div class="gcard"><img src="assets/img/character-1.jpg" alt="ИИ-персонаж"><div class="cap"><div class="t">Неидеальный наследник</div><div class="s">мини-сериал</div></div></div>
-      <div class="gcard"><img src="assets/img/character-2.jpg" alt="ИИ-персонаж"><div class="cap"><div class="t">Неидеальный наследник</div><div class="s">мини-сериал</div></div></div>
-      <div class="gcard"><img src="assets/img/character-3.jpg" alt="ИИ-персонаж"><div class="cap"><div class="t">Подлая подружка</div><div class="s">мини-сериал</div></div></div>
-      <div class="gcard"><img src="assets/img/character-4.jpg" alt="ИИ-персонаж"><div class="cap"><div class="t">Драгоценная месть</div><div class="s">мини-сериал</div></div></div>
-      <div class="gcard"><img src="assets/img/character-5.jpg" alt="ИИ-персонаж"><div class="cap"><div class="t">Авторский персонаж</div><div class="s">для коротких роликов</div></div></div>
-      <div class="gcard"><img src="assets/img/character-1.jpg" alt="ИИ-персонаж"><div class="cap"><div class="t">Неидеальный наследник</div><div class="s">мини-сериал</div></div></div>
-      <div class="gcard"><img src="assets/img/character-2.jpg" alt="ИИ-персонаж"><div class="cap"><div class="t">Неидеальный наследник</div><div class="s">мини-сериал</div></div></div>
-      <div class="gcard"><img src="assets/img/character-3.jpg" alt="ИИ-персонаж"><div class="cap"><div class="t">Подлая подружка</div><div class="s">мини-сериал</div></div></div>
-      <div class="gcard"><img src="assets/img/character-4.jpg" alt="ИИ-персонаж"><div class="cap"><div class="t">Драгоценная месть</div><div class="s">мини-сериал</div></div></div>
-      <div class="gcard"><img src="assets/img/character-5.jpg" alt="ИИ-персонаж"><div class="cap"><div class="t">Авторский персонаж</div><div class="s">для коротких роликов</div></div></div>
+  <!-- Герои: ряд листается пальцем и стрелками, по нажатию — большой просмотр (js/viewer.js собирает его из этих карточек).
+       Новый герой = ещё одна <figure class="hcard">; фраза о нём — в data-desc (покажется в большом просмотре);
+       превью ~600 px в src, полный файл 1080 px — в data-full у <img> (грузится только при открытии). 09.10.2026 -->
+  <div class="wrap hrail-wrap reveal">
+    <div class="hrail" id="hrail" data-zoom="heroes" tabindex="0" role="region" aria-label="Герои Умиды, листайте вбок">
+      <figure class="hcard" data-desc="">
+        <button type="button" class="hcard-pic" aria-label="Рассмотреть: Неидеальный наследник, мини-сериал"><img src="assets/img/character-2.jpg" width="440" height="787" alt="Герой: Неидеальный наследник, мини-сериал" decoding="async"><span class="zoom-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <figcaption><b>Неидеальный наследник</b><span>мини-сериал</span></figcaption>
+      </figure>
+      <figure class="hcard" data-desc="">
+        <button type="button" class="hcard-pic" aria-label="Рассмотреть: Подлая подружка, мини-сериал"><img src="assets/img/character-3.jpg" width="440" height="787" alt="Герой: Подлая подружка, мини-сериал" decoding="async"><span class="zoom-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <figcaption><b>Подлая подружка</b><span>мини-сериал</span></figcaption>
+      </figure>
+      <figure class="hcard" data-desc="">
+        <button type="button" class="hcard-pic" aria-label="Рассмотреть: Неидеальный наследник, мини-сериал"><img src="assets/img/character-1.jpg" width="440" height="787" alt="Герой: Неидеальный наследник, мини-сериал" decoding="async"><span class="zoom-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <figcaption><b>Неидеальный наследник</b><span>мини-сериал</span></figcaption>
+      </figure>
+      <figure class="hcard" data-desc="">
+        <button type="button" class="hcard-pic" aria-label="Рассмотреть: Драгоценная месть, мини-сериал"><img src="assets/img/character-4.jpg" width="440" height="787" alt="Герой: Драгоценная месть, мини-сериал" decoding="async"><span class="zoom-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <figcaption><b>Драгоценная месть</b><span>мини-сериал</span></figcaption>
+      </figure>
+      <figure class="hcard" data-desc="">
+        <button type="button" class="hcard-pic" aria-label="Рассмотреть: Авторский персонаж, для коротких роликов"><img src="assets/img/character-5.jpg" width="440" height="787" alt="Герой: Авторский персонаж, для коротких роликов" decoding="async"><span class="zoom-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <figcaption><b>Авторский персонаж</b><span>для коротких роликов</span></figcaption>
+      </figure>
+    </div>
+    <div class="hrail-nav">
+      <button type="button" class="hrail-btn" data-dir="-1" aria-label="Предыдущие герои"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <span class="hrail-hint">Листайте и нажмите на героя</span>
+      <button type="button" class="hrail-btn" data-dir="1" aria-label="Следующие герои"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     </div>
   </div>
 </div>
@@ -243,15 +261,15 @@
       <h2>Внутри не папка с видео, а живой кабинет</h2>
       <p>Кабинет открывается прямо в Telegram, а на компьютере — в браузере. Он помнит, где вы остановились: нажали «Продолжить урок» и снова на своём шаге. В уроках видео Умиды, шаги по порядку и готовые промпты, которые копируются одним касанием.</p>
     </div>
-    <div class="shots reveal">
-      <figure class="shot"><img src="assets/img/kab-uroki.jpg" width="540" height="1168" alt="Экран «Уроки»: обложка курса, колесо навыков, кнопка «Продолжить урок» и прогресс по модулям" loading="lazy" decoding="async"><figcaption>Уроки и прогресс</figcaption></figure>
-      <figure class="shot"><img src="assets/img/kab-video.jpg" width="540" height="1168" alt="Страница урока «Оживляем в Grok» с видео Умиды" loading="lazy" decoding="async"><figcaption>Видеоурок</figcaption></figure>
-      <figure class="shot"><img src="assets/img/kab-prompt.jpg" width="540" height="1168" alt="Готовый промпт урока с кнопкой «Скопировать»" loading="lazy" decoding="async"><figcaption>Готовые промпты</figcaption></figure>
+    <div class="shots reveal" data-zoom="cabinet">
+      <figure class="shot"><button type="button" class="shot-pic" aria-label="Рассмотреть экран: Уроки и прогресс"><img src="assets/img/kab-uroki.jpg" width="540" height="1168" alt="Экран «Уроки»: обложка курса, колесо навыков, кнопка «Продолжить урок» и прогресс по модулям" loading="lazy" decoding="async"><span class="zoom-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><figcaption>Уроки и прогресс</figcaption></figure>
+      <figure class="shot"><button type="button" class="shot-pic" aria-label="Рассмотреть экран: Видеоурок"><img src="assets/img/kab-video.jpg" width="540" height="1168" alt="Страница урока «Оживляем в Grok» с видео Умиды" loading="lazy" decoding="async"><span class="zoom-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><figcaption>Видеоурок</figcaption></figure>
+      <figure class="shot"><button type="button" class="shot-pic" aria-label="Рассмотреть экран: Готовые промпты"><img src="assets/img/kab-prompt.jpg" width="540" height="1168" alt="Готовый промпт урока с кнопкой «Скопировать»" loading="lazy" decoding="async"><span class="zoom-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><figcaption>Готовые промпты</figcaption></figure>
     </div>
     <p class="shots-text reveal">Застряли на шаге? <b>ИИ-наставник</b> ответит в любое время дня и ночи и знает, на каком вы уроке. Он есть в тарифах от 4&nbsp;999&nbsp;₽. А пройденные уроки сами закрашивают <b>колесо навыков</b>: видно, что вы уже умеете и что впереди.</p>
-    <div class="shots two reveal">
-      <figure class="shot"><img src="assets/img/kab-nastavnik.jpg" width="540" height="1168" alt="Вкладка «ИИ-наставник»: примеры вопросов и поле для своего" loading="lazy" decoding="async"><figcaption>ИИ-наставник</figcaption></figure>
-      <figure class="shot"><img src="assets/img/kab-koleso.jpg" width="540" height="1168" alt="Колесо навыков: пройденные этапы от идеи до заказа" loading="lazy" decoding="async"><figcaption>Колесо навыков</figcaption></figure>
+    <div class="shots two reveal" data-zoom="cabinet">
+      <figure class="shot"><button type="button" class="shot-pic" aria-label="Рассмотреть экран: ИИ-наставник"><img src="assets/img/kab-nastavnik.jpg" width="540" height="1168" alt="Вкладка «ИИ-наставник»: примеры вопросов и поле для своего" loading="lazy" decoding="async"><span class="zoom-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><figcaption>ИИ-наставник</figcaption></figure>
+      <figure class="shot"><button type="button" class="shot-pic" aria-label="Рассмотреть экран: Колесо навыков"><img src="assets/img/kab-koleso.jpg" width="540" height="1168" alt="Колесо навыков: пройденные этапы от идеи до заказа" loading="lazy" decoding="async"><span class="zoom-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><figcaption>Колесо навыков</figcaption></figure>
     </div>
   </div>
 </section>
@@ -342,7 +360,7 @@
     <div class="sec-head reveal">
       <span class="eyebrow">Тарифы</span>
       <h2>Выберите удобный формат участия</h2>
-      <p>Уроки и кабинет открываются в Telegram или в браузере. Доступ со сроком, он зависит от тарифа.</p>
+      <p>Уроки и кабинет открываются в Telegram или в браузере. Доступ со сроком, он зависит от тарифа. Не подошло — вернём деньги, <a class="to-refund" href="#vozvrat">условия ниже&nbsp;↓</a></p>
     </div>
     <div class="prices">
       <div class="price reveal">
@@ -397,11 +415,15 @@
         <p class="pnote">Уже учитесь на другом тарифе? <a href="https://t.me/MULTIKIAI_BOT?start=cp_site" target="_blank" rel="noopener">Напишите в бот</a> — посчитаем доплату.</p>
       </div>
     </div>
-    <p class="pay-note reveal">Оплата на уян.рф картой российского банка или через СБП, чек придёт на почту. Доступ открывается в течение рабочего дня после оплаты. Услугу оказывает ООО «ОЧНИСЬ», условия в <a href="https://xn--m1al0b.xn--p1ai/offer-multiki.html" target="_blank" rel="noopener" style="color:var(--strawberry-deep);text-decoration:underline">оферте</a>. Перейти на тариф выше можно в любой момент, пока действует доступ: напишите в бот — посчитаем доплату. Там же можно продлить доступ: 990 ₽ ещё на 3 месяца.</p>
-    <p class="pay-note reveal">Платите картой не российского банка? Сейчас банки часто отклоняют такие платежи. Надёжнее оплатить российской картой или по СБП. Если такой карты нет, напишите в <a href="https://t.me/MULTIKIAI_BOT?start=cp_site" target="_blank" rel="noopener" style="color:var(--strawberry-deep);text-decoration:underline">бот</a>, из какой вы страны, подскажем, есть ли сейчас способ оплаты.</p>
-    <p class="pay-note reveal">Подписки на нейросети в цену не входят, их вы оплачиваете сервисам напрямую: на старте ChatGPT (20 $ в месяц) и SuperGrok, это около 50 $ в месяц, а со всем набором инструментов курса до 130 $. Инструменты и порядок действий даём мы, а результат делаете вы: сколько заработаете, зависит от того, сколько серий выпустите и как будете их показывать.</p>
-    <p class="pay-note reveal"><b>Не подошло — вернём деньги.</b> До открытия доступа возвращаем всё. После открытия удерживаем за то, что вы уже открыли, или за прошедший срок, смотря что больше. Заявление на hello@uyan.pro, деньги приходят в течение 10 дней.</p>
-    <p class="pay-note reveal">Раньше здесь продавался мой прежний курс. В новом обучении доступ открывается на срок, а не навсегда. Кто уже учился у меня, напишите в бот слово «Перенос», про условия ответим лично.</p>
+    <!-- Под тарифами — карточки, а не пять абзацев (Умида 09.10: «сплошная текстовая портянка»). Юр-фразы — дословно
+         из прежних абзацев: оферта, возврат, «результат делаете вы». Правишь смысл — правь в оферте и здесь одновременно. -->
+    <div class="pay-info">
+      <div class="pi reveal" id="vozvrat"><span class="pi-ic pi-back" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 8H5V4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 8.5A8 8 0 1 1 4 13" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Не подошло — вернём деньги</h3><p>До открытия доступа возвращаем всё. После открытия удерживаем за то, что вы уже открыли, или за прошедший срок, смотря что больше. Заявление на hello@uyan.pro, деньги приходят в течение 10 дней.</p></div>
+      <div class="pi reveal"><span class="pi-ic pi-card" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2.5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 10.5h18M7 15h4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Оплата и доступ</h3><p>Оплата на уян.рф картой российского банка или через СБП, чек придёт на почту. Доступ открывается в течение рабочего дня после оплаты. Услугу оказывает ООО «ОЧНИСЬ», условия в <a href="https://xn--m1al0b.xn--p1ai/offer-multiki.html" target="_blank" rel="noopener">оферте</a>.</p></div>
+      <div class="pi reveal"><span class="pi-ic pi-world" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.5 12h17M12 3.5c2.6 2.4 2.6 14.6 0 17M12 3.5c-2.6 2.4-2.6 14.6 0 17" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Карта не российского банка</h3><p>На странице оплаты есть кнопка «Карта другой страны», цена та же. Но банки сейчас часто отклоняют такие платежи: если не прошло, напишите в <a href="https://t.me/MULTIKIAI_BOT?start=cp_site" target="_blank" rel="noopener">бот</a>, из какой вы страны, подскажем другой способ.</p></div>
+      <div class="pi reveal"><span class="pi-ic pi-ai" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="7" width="14" height="11" rx="3" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 7V4M9.5 12h.01M14.5 12h.01M9.5 15h5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Подписки на нейросети</h3><p>В цену курса не входят, их вы оплачиваете сервисам напрямую: на старте ChatGPT (20 $ в месяц) и SuperGrok, это около 50 $ в месяц, а со всем набором инструментов курса до 130 $.</p></div>
+    </div>
+    <p class="pay-note pay-honest reveal">Инструменты и порядок действий даём мы, а результат делаете вы: сколько заработаете, зависит от того, сколько серий выпустите и как будете их показывать.</p>
     <p class="pay-note reveal"><a class="btn btn-ghost" href="https://t.me/MULTIKIAI_BOT?start=cp_site" target="_blank" rel="noopener">💬 Есть вопрос? Напишите в бот</a><br>Там отвечает Ильнур, мой партнёр по курсу.</p>
   </div>
 </section>
@@ -421,6 +443,10 @@
         <div class="acc-body"><ul><li>Первая серия сериала по урокам занимает около 6 часов, это 2–3 вечера. Первая серия мультика около 4–4,5 часа плюс время, пока нейросеть считает. Вторая серия быстрее: герои и локации уже есть.</li></ul></div></div>
       <div class="acc reveal"><div class="acc-head"><h3 style="margin:0">Сколько длится доступ?</h3><span class="plus"></span></div>
         <div class="acc-body"><ul><li>«Самостоятельный» и «С наставником» на 3 месяца, «Мультцех» на 6, «Студия из одного» на 9. Пока срок идёт, можно перейти на тариф выше и доплатить разницу. Когда срок закончится, свой тариф можно продлить за 990 ₽ на 3 месяца.</li></ul></div></div>
+      <div class="acc reveal"><div class="acc-head"><h3 style="margin:0">Можно перейти на тариф выше или продлить доступ?</h3><span class="plus"></span></div>
+        <div class="acc-body"><ul><li>Да. Перейти на тариф выше можно в любой момент, пока действует доступ: напишите в бот — посчитаем доплату. Там же можно продлить доступ: 990 ₽ ещё на 3 месяца.</li></ul></div></div>
+      <div class="acc reveal"><div class="acc-head"><h3 style="margin:0">Уже учились на прежнем курсе — что теперь?</h3><span class="plus"></span></div>
+        <div class="acc-body"><ul><li>Раньше здесь продавался мой прежний курс. В новом обучении доступ открывается на срок, а не навсегда. Кто уже учился у меня, напишите в бот слово «Перенос», про условия ответим лично.</li></ul></div></div>
       <div class="acc reveal"><div class="acc-head"><h3 style="margin:0">Подойдёт ли, если я из России или Беларуси?</h3><span class="plus"></span></div>
         <div class="acc-body"><ul><li>Да. В модуле «Старт» есть уроки, как установить ChatGPT и Grok на телефон и как оплачивать подписки из России и Беларуси.</li></ul></div></div>
     </div>
@@ -462,7 +488,20 @@
   </div>
 </footer>
 <a class="sticky-cta" href="#prices"><span class="sc-txt">Курс Умиды<b>от <span data-price="multiki_mini">2 900 ₽</span></b></span><span class="sc-btn">Выбрать формат</span></a>
+<dialog class="hview" id="hview" aria-label="Герой крупно">
+  <div class="hv-box">
+    <button type="button" class="hv-close" aria-label="Закрыть" autofocus><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></button>
+    <div class="hv-pic"></div>
+    <div class="hv-cap"><b class="hv-name"></b><span class="hv-fmt"></span><p class="hv-desc" hidden></p></div>
+    <div class="hv-nav">
+      <button type="button" class="hv-btn" data-dir="-1" aria-label="Предыдущий герой"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <span class="hv-count"></span>
+      <button type="button" class="hv-btn" data-dir="1" aria-label="Следующий герой"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+  </div>
+</dialog>
 <script src="js/script.js"></script>
+<script src="js/viewer.js?v=20261009" defer></script>
 <script src="js/prices.js?v=20261005" defer></script>
 </body>
 </html>
