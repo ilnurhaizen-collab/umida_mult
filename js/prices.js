@@ -15,6 +15,35 @@
     return n.toLocaleString('ru-RU') + ' ₽';
   }
 
+  /* Метка из адреса страницы — в кнопки «Оплатить» (10.10.2026). Бот курса ведёт сюда с меткой входа (?cp=…),
+     ссылка партнёра — ещё с меткой и подписью (?ref=…&rs=…). Кнопки несут их на страницу оплаты: в записи оплаты
+     видно, откуда человек. Ник (?tg=) бот сюда пока не шлёт — сайт за рубежом, ждём ответа юриста; придёт — кнопки
+     понесут и его. Только проверенный формат — мусор из адреса в ссылку оплаты не попадает. src=umida_site стоит
+     в самих кнопках и из адреса не меняется. Формат ref — как в api (одиночный «_» — старые метки p_<имя>). */
+  function carryLabel() {
+    var q = new URLSearchParams(location.search);
+    var put = [];
+    var tg = (q.get('tg') || '').replace(/^@/, '');
+    if (/^[a-zA-Z0-9_]{5,32}$/.test(tg)) put.push(['tg', tg]);
+    var cp = q.get('cp') || '';
+    if (/^[A-Za-z0-9_-]{1,64}$/.test(cp)) put.push(['cp', cp]);
+    var ref = q.get('ref') || '', rs = q.get('rs') || '';
+    if (/^(?=[a-z0-9_-]{2,24}(?:__a\d{1,2})?$)[a-z0-9-]+(?:_[a-z0-9-]+)*(?:__a\d{1,2})?$/.test(ref)) {
+      put.push(['ref', ref]);
+      if (/^\d{9,11}\.[A-Za-z0-9_-]{22}$/.test(rs)) put.push(['rs', rs]);
+    }
+    if (!put.length) return;
+    var pay = document.querySelectorAll('a[data-pay]');
+    for (var i = 0; i < pay.length; i++) {
+      var u = new URL(pay[i].href);
+      for (var k = 0; k < put.length; k++) u.searchParams.set(put[k][0], put[k][1]);
+      pay[i].href = u.toString();
+    }
+  }
+  try {
+    carryLabel();
+  } catch (e) { /* старый браузер без URL — кнопки остаются как в разметке */ }
+
   // Что не заполнил прайс — честная заглушка вместо «…».
   function fallback() {
     var els = document.querySelectorAll('[data-price]');
