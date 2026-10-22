@@ -55,6 +55,28 @@
     carryLabel();
   } catch (e) { /* старый браузер без URL — кнопки остаются как в разметке */ }
 
+  /* Бот курса ведёт на тарифы с тем, кто открыл ссылку, во фрагменте: #prices&k=…&i=… (23.10.2026). К такому адресу
+     браузер сам не листает — элемента с id «prices&k=…» нет, — поэтому листаем к первому слову фрагмента сами, сразу
+     и ещё раз после загрузки картинок. Человек успел прокрутить или нажать клавишу — второй раз не дёргаем. */
+  function scrollToSection() {
+    var parts = (location.hash || '').replace(/^#/, '').split('&');
+    if (parts.length < 2 || !/^[a-z][a-z0-9_-]{0,40}$/i.test(parts[0])) return;
+    var el = document.getElementById(parts[0]);
+    if (!el) return;
+    var moved = false;
+    var stop = function () { moved = true; };
+    window.addEventListener('wheel', stop, { passive: true, once: true });
+    window.addEventListener('touchstart', stop, { passive: true, once: true });
+    window.addEventListener('keydown', stop, { once: true });
+    el.scrollIntoView({ behavior: 'instant', block: 'start' });
+    window.addEventListener('load', function () {
+      if (!moved) el.scrollIntoView({ behavior: 'instant', block: 'start' });
+    }, { once: true });
+  }
+  try {
+    scrollToSection();
+  } catch (e) { /* старый браузер — остаётся первый экран */ }
+
   // Что не заполнил прайс — честная заглушка вместо «…».
   function fallback() {
     var els = document.querySelectorAll('[data-price]');
