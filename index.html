@@ -16,7 +16,7 @@
 <meta property="og:description" content="Освой нейросети ChatGPT и Grok и монтаж в CapCut с нуля и создавай свои ИИ-сериалы и мультики. Пошаговый курс от Умиды Нишановой.">
 <meta property="og:image" content="https://umidanishanowa.com/assets/img/hero.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="css/styles.css?v=20261009">
+<link rel="stylesheet" href="css/styles.css?v=20261022">
 </head>
 <body>
 <div class="grain" aria-hidden="true"></div>
@@ -44,6 +44,12 @@
       <span class="eyebrow">Нейросети · видео · творчество</span>
       <h1>Создавай <span class="hl">киношные ИИ-мультики</span> с нуля, без сложного монтажа</h1>
       <p class="lead">Пошаговый курс для тех, кто хочет научиться создавать яркие анимационные ролики с помощью нейросетей — <b>без опыта работы в нейросетях и в монтаже</b>. От идеи до готовой серии: почти всё делается с телефона.</p>
+      <!-- Первый экран для пришедших со сказок (22.10.2026): шапка аккаунта сказок ведёт в бот курса (start=cp_skazki),
+           бот — сюда с ?cp=skazki. С этой меткой js/script.js ставит заголовок и подзаголовок отсюда, остальное как у всех. -->
+      <template id="heroSkazki">
+        <h1>Научитесь делать <span class="hl">ИИ‑сказки</span> с&nbsp;нуля, как в&nbsp;моём аккаунте</h1>
+        <p class="lead">Покажу по шагам, как я делаю свои сказки: от текста диктора и озвучки до оживления кадров и готового ролика. <b>Опыт в нейросетях и в монтаже не нужен.</b> Сказки входят в каждый тариф, вместе с сериалами и мультиками.</p>
+      </template>
       <ul class="bullets">
         <li><span class="tick">✓</span><span>Почти всё делается с телефона, голос для «Сказок» клонируется с компьютера</span></li>
         <li><span class="tick">✓</span><span>Без навыков сложного монтажа и дизайна</span></li>
@@ -51,7 +57,7 @@
       </ul>
       <div class="hero-cta">
         <a class="btn btn-lg" href="#prices">Узнать форматы</a>
-        <span class="note">Доступ в течение рабочего дня после оплаты · на 3, 6 или 9 месяцев по тарифу</span>
+        <span class="note">Доступ в течение рабочего дня после оплаты · на 3 или 6 месяцев по тарифу</span>
       </div>
     </div>
     <div class="hero-visual reveal">
@@ -72,7 +78,7 @@
       <div class="item"><div class="num">с телефона</div><div class="lbl">без мощного ПК</div></div>
       <div class="item"><div class="num">4 модуля</div><div class="lbl">и три способа на выбор</div></div>
       <div class="item"><div class="num">с нуля</div><div class="lbl">опыт не нужен</div></div>
-      <div class="item"><div class="num">ИИ‑наставник</div><div class="lbl">в тарифах от 4 999 ₽</div></div>
+      <div class="item"><div class="num">ИИ‑наставник</div><div class="lbl">в каждом тарифе</div></div>
     </div>
   </div>
 </section>
@@ -207,7 +213,7 @@
       <div class="acc reveal"><div class="acc-head"><span class="mnum">1</span><h3>Вступление и Модуль 1. Старт</h3><span class="plus"></span></div>
         <div class="acc-body">
           <p class="lesson">Вступление и 8 уроков · около 2 часов · все тарифы</p>
-          <ul><li>Вступление: что вас ждёт на курсе и куда он ведёт</li><li>Навигация по обучению: как устроен курс, где лежат промпты</li><li>Какие нейросети нужны: что делает каждая и без каких можно обойтись на старте</li><li>Как зарегистрироваться в нейросетях и купить подписку, чтобы не переплатить</li><li>Как оплачивать нейросети из России и Беларуси: способы, которые работают сейчас</li><li>Как установить ChatGPT и Grok на телефон</li><li>Как купить подписку в Syntx AI: одно приложение, внутри несколько нейросетей</li><li>Первое изображение и первая анимация: кадр из ChatGPT оживает в Grok</li><li>Зачем это всё: кто сегодня заказывает ИИ-видео и порядок цен</li></ul>
+          <ul><li>Вступление: что вас ждёт на курсе и куда он ведёт</li><li>Навигация по обучению: как устроен курс, где лежат промпты</li><li>Какие нейросети нужны: что делает каждая и без каких можно обойтись на старте</li><li>Как зарегистрироваться в нейросетях и купить подписку, чтобы не переплатить</li><li>Как оплачивать нейросети из России и Беларуси: способы, которые работают сейчас</li><li>Как установить ChatGPT и Grok на телефон</li><li>Как купить подписку в Syntx AI: одно приложение, внутри несколько нейросетей</li><li>Первое изображение и первая анимация: кадр из ChatGPT оживает в Grok</li><li>Кто заказывает ИИ-видео и сколько платят</li></ul>
         </div></div>
       <div class="acc reveal"><div class="acc-head"><span class="mnum">2</span><h3>Модуль 2. Реалистичные сериалы</h3><span class="plus"></span></div>
         <div class="acc-body">
@@ -219,9 +225,9 @@
           <p class="lesson">8 уроков · все тарифы · первая серия около 4–4,5 часа плюс время, пока нейросеть считает</p>
           <ul><li>Идея: чем мультсериал отличается от сериала с людьми</li><li>Сюжет на шесть серий</li><li>Персонажи (урок записывается)</li><li>Генерим персонажей: лист персонажа в полный рост одним промптом</li><li>Первая серия: три блока (урок записывается)</li><li>Генерим кадры, чтобы герои и одежда не поплыли</li><li>Анимация в Grok: речь героев попадает в губы</li><li>Монтаж: в уроке показан на компьютере, в конце есть путь с телефона</li></ul>
         </div></div>
-      <div class="acc reveal"><div class="acc-head"><span class="mnum">2</span><h3>Модуль 2. Сказки в Seedance 2.5 <span class="mod">Мультцех и Студия</span></h3><span class="plus"></span></div>
+      <div class="acc reveal"><div class="acc-head"><span class="mnum">2</span><h3>Модуль 2. Сказки в Seedance 2.5</h3><span class="plus"></span></div>
         <div class="acc-body">
-          <p class="lesson">6 уроков · тарифы «Мультцех» и «Студия из одного» · около 5 часов на сказку в 2 минуты</p>
+          <p class="lesson">6 уроков · все тарифы · около 5 часов на сказку в 2 минуты</p>
           <ul><li>Идея и текст диктора на две минуты</li><li>Озвучка в ElevenLabs: голос из библиотеки или клон голоса (клон делается с компьютера)</li><li>Стиль и раскадровка</li><li>Блоки для Seedance 2.5 по тридцать секунд</li><li>Анимация в Syntx</li><li>Монтаж в CapCut: голос диктора одной дорожкой, субтитры</li></ul>
         </div></div>
       <div class="acc reveal"><div class="acc-head"><span class="mnum">3</span><h3>Модуль 3. Продвижение в соцсетях</h3><span class="plus"></span></div>
@@ -229,22 +235,22 @@
           <p class="lesson">5 уроков · все тарифы</p>
           <ul><li>Упаковка блога: шапка профиля и аватар в нейросети</li><li>Актуальные сторис: какие нужны и как оформить</li><li>Карусели через ChatGPT: виды и как собрать</li><li>Сто хуков и заголовков для роликов и каруселей</li><li>Как набрать подписчиков за месяц: план на четыре недели</li></ul>
         </div></div>
-      <div class="acc reveal"><div class="acc-head"><span class="mnum">4</span><h3>Модуль 4. Воронка и телеграм-канал <span class="mod">Мультцех и Студия</span></h3><span class="plus"></span></div>
+      <div class="acc reveal"><div class="acc-head"><span class="mnum">4</span><h3>Модуль 4. Воронка и телеграм-канал <span class="mod">Научиться и брать заказы</span> <span class="mod">Студия</span></h3><span class="plus"></span></div>
         <div class="acc-body">
-          <p class="lesson">5 уроков · тарифы «Мультцех» и «Студия из одного»</p>
+          <p class="lesson">5 уроков · тарифы «Научиться и брать заказы» и «Студия из одного»</p>
           <p class="prog-lead">Ролики приводят людей, но продажа происходит не в них. Этот модуль — про то, куда вести человека после просмотра и что ему там показывать.</p>
           <ul><li>Воронка продаж: путь человека от просмотра до покупки</li><li>Лид-магнит и настройка чат-бота: автоответ по кодовому слову</li><li>Создание и упаковка телеграм-канала</li><li>Какие посты писать и контент-план на месяц</li><li>Отложенный постинг, голосовые, кружки и опросы</li></ul>
         </div></div>
-      <div class="acc reveal"><div class="acc-head"><span class="mnum">5</span><h3>Модуль 5. Деньги <span class="mod">Мультцех и Студия</span></h3><span class="plus"></span></div>
+      <div class="acc reveal"><div class="acc-head"><span class="mnum">5</span><h3>Модуль 5. Деньги <span class="mod">Научиться и брать заказы</span> <span class="mod">Студия</span></h3><span class="plus"></span></div>
         <div class="acc-body">
-          <p class="lesson">8 уроков · тарифы «Мультцех» и «Студия из одного» · уроки текстовые</p>
+          <p class="lesson">8 уроков · тарифы «Научиться и брать заказы» и «Студия из одного» · уроки текстовые</p>
           <p class="prog-lead">Сделали ролик, а кто его заплатит? Этот модуль про заказчиков: где их искать, сколько брать и как не продешевить.</p>
           <ul><li>Где искать первых заказчиков и какие заказы бывают</li><li>Портфолио из работ, которые вы сделаете на курсе</li><li>Сколько брать за ролик, серию и сериал и из чего складывается цена</li><li>Как говорить с клиентом: что спросить до начала работы, чтобы не было сюрпризов</li><li>Техническое задание: бланк из 13 вопросов, чтобы не переделывать бесплатно</li><li>Работа с блогерами и брендами: как предложить себя и договориться о цене</li><li>Партнёрская программа (урок записывается)</li><li>Заработок на телеграм-канале: реклама и партнёрские ссылки (урок записывается)</li></ul>
           <p class="prog-note">Гарантий дохода курс не даёт: сколько заработаете, зависит от того, сколько серий выпустите и как их покажете. А вот порядок, как найти первого заказчика и не продешевить, — в этом модуле.</p>
         </div></div>
-      <div class="acc reveal"><div class="acc-head"><span class="mnum">★</span><h3>Полуавтоматизация <span class="mod">Мультцех и Студия</span></h3><span class="plus"></span></div>
+      <div class="acc reveal"><div class="acc-head"><span class="mnum">★</span><h3>Полуавтоматизация <span class="mod">Научиться и брать заказы</span> <span class="mod">Студия</span></h3><span class="plus"></span></div>
         <div class="acc-body">
-          <p class="lesson">6 уроков · открыта сразу · уроки текстовые</p>
+          <p class="lesson">6 уроков · тарифы «Научиться и брать заказы» и «Студия из одного» · уроки текстовые</p>
           <ul><li>Карта конвейера: что отдать нейросетям, а что оставить себе</li><li>Библия сериала: новая серия одним сообщением</li><li>Режиссёр серии: промпты на всю серию разом</li><li>Кадры и оживление очередью</li><li>Монтаж по шаблону</li><li>Публикация без рутины</li><li>Генерация, сборка и публикация идут по шаблону, а вы ставите задачу, проверяете и утверждаете. Полностью автоматическое создание роликов курс не обещает</li></ul>
         </div></div>
       <div class="acc reveal"><div class="acc-head"><span class="mnum">★</span><h3>Свой продукт <span class="mod">Студия</span></h3><span class="plus"></span></div>
@@ -272,7 +278,7 @@
       <figure class="shot"><button type="button" class="shot-pic" aria-label="Рассмотреть экран: Видеоурок"><img src="assets/img/kab-video.jpg" width="540" height="1168" alt="Страница урока «Оживляем в Grok» с видео Умиды" loading="lazy" decoding="async"><span class="zoom-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><figcaption>Видеоурок</figcaption></figure>
       <figure class="shot"><button type="button" class="shot-pic" aria-label="Рассмотреть экран: Готовые промпты"><img src="assets/img/kab-prompt.jpg" width="540" height="1168" alt="Готовый промпт урока с кнопкой «Скопировать»" loading="lazy" decoding="async"><span class="zoom-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><figcaption>Готовые промпты</figcaption></figure>
     </div>
-    <p class="shots-text reveal">Застряли на шаге? <b>ИИ-наставник</b> ответит в любое время дня и ночи и знает, на каком вы уроке. Он есть в тарифах от 4&nbsp;999&nbsp;₽. А пройденные уроки сами закрашивают <b>колесо навыков</b>: видно, что вы уже умеете и что впереди.</p>
+    <p class="shots-text reveal">Застряли на шаге? <b>ИИ-наставник</b> ответит в любое время дня и ночи и знает, на каком вы уроке. Он есть в каждом тарифе. А пройденные уроки сами закрашивают <b>колесо навыков</b>: видно, что вы уже умеете и что впереди.</p>
     <div class="shots two reveal" data-zoom="cabinet">
       <figure class="shot"><button type="button" class="shot-pic" aria-label="Рассмотреть экран: ИИ-наставник"><img src="assets/img/kab-nastavnik.jpg" width="540" height="1168" alt="Вкладка «ИИ-наставник»: примеры вопросов и поле для своего" loading="lazy" decoding="async"><span class="zoom-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><figcaption>ИИ-наставник</figcaption></figure>
       <figure class="shot"><button type="button" class="shot-pic" aria-label="Рассмотреть экран: Колесо навыков"><img src="assets/img/kab-koleso.jpg" width="540" height="1168" alt="Колесо навыков: пройденные этапы от идеи до заказа" loading="lazy" decoding="async"><span class="zoom-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><figcaption>Колесо навыков</figcaption></figure>
@@ -368,63 +374,54 @@
       <h2>Выберите удобный формат участия</h2>
       <p>Уроки и кабинет открываются в Telegram или в браузере. Доступ со сроком, он зависит от тарифа. Не подошло — вернём деньги, <a class="to-refund" href="#vozvrat">условия ниже&nbsp;↓</a></p>
     </div>
+    <!-- Продающее видео Умиды — над тарифами, финал видео: «тарифы прямо под этим видео» (22.10.2026). Пока id нет, блока не
+         видно: пустой плеер не показываем. Вставить видео — одна правка: id из ссылки Kinescope (kinescope.io/<id>) в
+         data-kinescope ниже, плеер соберёт js/script.js. -->
+    <div class="sales-video reveal" id="video" data-kinescope="" hidden></div>
+    <!-- Две карточки вместо четырёх (линейка 22.10.2026): одинаковые по весу, у второй — спокойный ярлык без «популярный».
+         Тексты — дословно из контракта выкатки (как на странице оплаты и в боте). «Мультцех» заморожен 22.10 и не
+         продаётся, «Студия из одного» — строкой под карточками, через человека, без цены. Гарантия — под ценой,
+         подписки — рядом с ценой. -->
     <div class="prices">
       <div class="price reveal">
-        <div class="pname">Самостоятельный</div>
-        <div class="psub">Все уроки открыты сразу, идёте в своём темпе.</div>
+        <div class="pname">Научиться</div>
         <div class="pcost"><span data-price="multiki_mini">2 900 ₽</span><small>доступ 3 месяца</small></div>
+        <p class="pguar">Не подошло в первые 7 дней — вернём всю сумму, без вопросов.</p>
+        <p class="psubs">Подписки на нейросети оплачиваются отдельно, сервисам напрямую: на старте около 50 $ в месяц (ChatGPT и SuperGrok), со всем набором — до 130 $.</p>
         <ul>
-          <li><span class="ck">✓</span>Старт, реалистичные сериалы и мультики по моему методу</li>
-          <li><span class="ck">✓</span>Модуль «Продвижение в соцсетях»</li>
-          <li><span class="ck">✓</span>База промптов, копируются одним касанием</li>
-          <li><span class="ck">✓</span>Удобно следить за прогрессом: отмечаете урок пройденным по строке «Сделано, когда», весь путь виден в кабинете</li>
-        </ul>
-        <a class="btn btn-ghost" data-pay="multiki_mini" href="https://xn--m1al0b.xn--p1ai/multiki.html?tier=multiki_mini&amp;cp=site&amp;src=umida_site" target="_blank" rel="noopener">Оплатить «Самостоятельный»</a>
-      </div>
-      <div class="price feat reveal">
-        <span class="tag">Больше поддержки</span>
-        <div class="pname">С наставником</div>
-        <div class="psub">То же самое, уроки открываются по очереди — по мере прохождения курса.</div>
-        <div class="pcost"><span data-price="multiki_ai">4 999 ₽</span><small>доступ 3 месяца</small></div>
-        <ul>
-          <li><span class="ck">✓</span>Всё из тарифа «Самостоятельный»</li>
-          <li><span class="ck">✓</span>ИИ-наставник на платформе отвечает на вопросы по урокам, до 15 вопросов в день</li>
-          <li><span class="ck">✓</span>Персональный покадровый разбор вашей работы: ИИ разбирает её сразу при сдаче</li>
+          <li><span class="ck">✓</span>Все три способа: реалистичные сериалы, мультики по методу Умиды, сказки</li>
+          <li><span class="ck">✓</span>Старт: какие нейросети нужны и как оплатить их из России и СНГ</li>
+          <li><span class="ck">✓</span>Продвижение в соцсетях: шапка, сторис, карусели, хуки, план на месяц</li>
+          <li><span class="ck">✓</span>ИИ-наставник отвечает на вопросы по урокам в любое время</li>
+          <li><span class="ck">✓</span>Разбор по кадрам: присылаете главные кадры серии — наставник разбирает каждый: где герой поплыл, что с крупностью и светом, что переделать</li>
+          <li><span class="ck">✓</span>Урок «Кто заказывает ИИ-видео и сколько платят»</li>
+          <li><span class="ck">✓</span>Все уроки открыты сразу</li>
         </ul>
         <p class="pstar">* Наставник — это программа, собранная по моим урокам, а не я лично.</p>
-        <a class="btn" data-pay="multiki_ai" href="https://xn--m1al0b.xn--p1ai/multiki.html?tier=multiki_ai&amp;cp=site&amp;src=umida_site" target="_blank" rel="noopener">Оплатить «С&nbsp;наставником»</a>
+        <a class="btn" data-pay="multiki_mini" href="https://xn--m1al0b.xn--p1ai/multiki.html?tier=multiki_mini&amp;cp=site&amp;src=umida_site" target="_blank" rel="noopener"><span>Оплатить <span data-price="multiki_mini">2 900 ₽</span></span></a>
       </div>
       <div class="price reveal">
-        <div class="pname">Мультцех</div>
-        <div class="psub">Всё из тарифа «С наставником», плюс модуль «Сказки». И полуавтоматизация.</div>
-        <div class="pcost"><span data-price="multiki_flow">14 900 ₽</span><small>доступ 6 месяцев</small></div>
+        <span class="tag">Чтобы брать заказы</span>
+        <div class="pname">Научиться и брать заказы</div>
+        <div class="pcost"><span data-price="multiki_ai">4 999 ₽</span><small>доступ 6 месяцев</small></div>
+        <p class="pguar">Не подошло в первые 7 дней — вернём всю сумму, без вопросов.</p>
+        <p class="psubs">Подписки на нейросети оплачиваются отдельно, сервисам напрямую: на старте около 50 $ в месяц (ChatGPT и SuperGrok), со всем набором — до 130 $.</p>
         <ul>
-          <li><span class="ck">✓</span>Всё из тарифа «С наставником», наставник до 20 вопросов в день</li>
-          <li><span class="ck">✓</span>Сказки в Seedance 2.5</li>
-          <li><span class="ck">✓</span>Полуавтоматизация: текстовые уроки, открыта сразу</li>
-          <li><span class="ck">✓</span>Модуль «Воронка и телеграм-канал»: куда вести человека после ролика</li><li><span class="ck">✓</span>Модуль «Деньги»: где брать заказы, сколько брать за ролик и серию, как говорить с клиентом</li>
+          <li><span class="ck">✓</span>Всё из «Научиться»</li>
+          <li><span class="ck">✓</span>Модуль «Деньги»: где искать заказчиков, портфолио, прайс, переписка с заказчиком, техническое задание, работа с блогерами и брендами</li>
+          <li><span class="ck">✓</span>Модуль «Воронка и Telegram-канал»: куда вести человека после ролика, канал как витрина работ</li>
+          <li><span class="ck">✓</span>Полуавтоматизация: рутину делают нейросети, вы проверяете и утверждаете</li>
+          <li><span class="ck">✓</span>Все уроки открыты сразу</li>
         </ul>
-        <p class="pstar">* Живых разборов и встреч в этом тарифе нет.</p>
-        <a class="btn btn-ghost" data-pay="multiki_flow" href="https://xn--m1al0b.xn--p1ai/multiki.html?tier=multiki_flow&amp;cp=site&amp;src=umida_site" target="_blank" rel="noopener">Оплатить «Мультцех»</a>
-      </div>
-      <div class="price reveal" id="studiya">
-        <div class="pname">Студия из одного</div>
-        <div class="psub">Весь курс, обучение вместе с группой и создание своего продукта.</div>
-        <div class="pcost"><span data-price="multiki_flagman">…</span><small class="pwas" data-was="multiki_flagman" hidden>сейчас вместо <s></s>, до 31 октября</small><small>доступ 9 месяцев · живые разборы каждую неделю</small></div>
-        <ul>
-          <li><span class="ck">✓</span>Всё из тарифа «Мультцех», наставник до 30 вопросов в день</li>
-          <li><span class="ck">✓</span>Создание продукта и воронки: как собрать свой курс и продать его</li>
-          <li><span class="ck">✓</span>Обучение в потоке в закрытом чате</li>
-          <li><span class="ck">✓</span>Не меньше 10 живых групповых разборов работ за срок доступа</li>
-        </ul>
-        <a class="btn btn-ghost" data-pay="multiki_flagman" href="https://xn--m1al0b.xn--p1ai/multiki.html?tier=multiki_flagman&amp;cp=site&amp;src=umida_site" target="_blank" rel="noopener">Оплатить «Студию»</a>
-        <p class="pnote">Уже учитесь на другом тарифе? <a href="https://t.me/MULTIKIAI_BOT?start=cp_site" target="_blank" rel="noopener">Напишите в бот</a> — посчитаем доплату.</p>
+        <a class="btn" data-pay="multiki_ai" href="https://xn--m1al0b.xn--p1ai/multiki.html?tier=multiki_ai&amp;cp=site&amp;src=umida_site" target="_blank" rel="noopener"><span>Оплатить <span data-price="multiki_ai">4 999 ₽</span></span></a>
       </div>
     </div>
+    <p class="pstudio reveal" id="studiya">Хотите учиться в группе с живыми разборами — <a href="https://t.me/MULTIKIAI_BOT?start=cp_studiya" target="_blank" rel="noopener">напишите нам</a></p>
     <!-- Под тарифами — карточки, а не пять абзацев (Умида 09.10: «сплошная текстовая портянка»). Юр-фразы — дословно
-         из прежних абзацев: оферта, возврат, «результат делаете вы». Правишь смысл — правь в оферте и здесь одновременно. -->
+         из прежних абзацев: оферта, «результат делаете вы»; возврат — гарантия 7 дней, остальные условия (после 7 дней,
+         сроки, заявление) только в оферте (22.10.2026). Правишь смысл — правь в оферте и здесь одновременно. -->
     <div class="pay-info">
-      <div class="pi reveal" id="vozvrat"><span class="pi-ic pi-back" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 8H5V4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 8.5A8 8 0 1 1 4 13" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Не подошло — вернём деньги</h3><p>До открытия доступа возвращаем всё. После открытия удерживаем за то, что вы уже открыли, или за прошедший срок, смотря что больше. Заявление на hello@uyan.pro, деньги приходят в течение 10 дней.</p></div>
+      <div class="pi reveal" id="vozvrat"><span class="pi-ic pi-back" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 8H5V4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 8.5A8 8 0 1 1 4 13" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Не подошло — вернём деньги</h3><p>Не подошло в первые 7 дней — вернём всю сумму, без вопросов.</p></div>
       <div class="pi reveal"><span class="pi-ic pi-card" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2.5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 10.5h18M7 15h4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Оплата и доступ</h3><p>Оплата на уян.рф картой российского банка или через СБП, чек придёт на почту. Доступ открывается в течение рабочего дня после оплаты. Услугу оказывает ООО «ОЧНИСЬ», условия в <a href="https://xn--m1al0b.xn--p1ai/offer-multiki.html" target="_blank" rel="noopener">оферте</a>.</p></div>
       <div class="pi reveal"><span class="pi-ic pi-world" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.5 12h17M12 3.5c2.6 2.4 2.6 14.6 0 17M12 3.5c-2.6 2.4-2.6 14.6 0 17" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Карта не российского банка</h3><p>На странице оплаты есть кнопка «Карта другой страны», цена та же. Но банки сейчас часто отклоняют такие платежи: если не прошло, напишите в <a href="https://t.me/MULTIKIAI_BOT?start=cp_site" target="_blank" rel="noopener">бот</a>, из какой вы страны, подскажем другой способ.</p></div>
       <div class="pi reveal"><span class="pi-ic pi-ai" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="7" width="14" height="11" rx="3" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 7V4M9.5 12h.01M14.5 12h.01M9.5 15h5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Подписки на нейросети</h3><p>В цену курса не входят, их вы оплачиваете сервисам напрямую: на старте ChatGPT (20 $ в месяц) и SuperGrok, это около 50 $ в месяц, а со всем набором инструментов курса до 130 $.</p></div>
@@ -448,9 +445,11 @@
       <div class="acc reveal"><div class="acc-head"><h3 style="margin:0">Сколько времени займёт первый ролик?</h3><span class="plus"></span></div>
         <div class="acc-body"><ul><li>Первая серия сериала по урокам занимает около 6 часов, это 2–3 вечера. Первая серия мультика около 4–4,5 часа плюс время, пока нейросеть считает. Вторая серия быстрее: герои и локации уже есть.</li></ul></div></div>
       <div class="acc reveal"><div class="acc-head"><h3 style="margin:0">Сколько длится доступ?</h3><span class="plus"></span></div>
-        <div class="acc-body"><ul><li>«Самостоятельный» и «С наставником» на 3 месяца, «Мультцех» на 6, «Студия из одного» на 9. Пока срок идёт, можно перейти на тариф выше и доплатить разницу. Когда срок закончится, свой тариф можно продлить за 990 ₽ на 3 месяца.</li></ul></div></div>
+        <div class="acc-body"><ul><li>«Научиться» на 3 месяца, «Научиться и брать заказы» на 6. Пока срок идёт, можно перейти на тариф выше и доплатить разницу. Когда срок закончится, свой тариф можно продлить за 990 ₽ на 3 месяца.</li></ul></div></div>
       <div class="acc reveal"><div class="acc-head"><h3 style="margin:0">Можно перейти на тариф выше или продлить доступ?</h3><span class="plus"></span></div>
         <div class="acc-body"><ul><li>Да. Перейти на тариф выше можно в любой момент, пока действует доступ: напишите в бот — посчитаем доплату. Там же можно продлить доступ: 990 ₽ ещё на 3 месяца.</li></ul></div></div>
+      <div class="acc reveal"><div class="acc-head"><h3 style="margin:0">А если курс мне не подойдёт?</h3><span class="plus"></span></div>
+        <div class="acc-body"><ul><li>Не подошло в первые 7 дней — вернём всю сумму, без вопросов. Для этого напишите в бот курса.</li></ul></div></div>
       <div class="acc reveal"><div class="acc-head"><h3 style="margin:0">Уже учились на прежнем курсе — что теперь?</h3><span class="plus"></span></div>
         <div class="acc-body"><ul><li>Раньше здесь продавался мой прежний курс. В новом обучении доступ открывается на срок, а не навсегда. Кто уже учился у меня, напишите в бот слово «Перенос», про условия ответим лично.</li></ul></div></div>
       <div class="acc reveal"><div class="acc-head"><h3 style="margin:0">Подойдёт ли, если я из России или Беларуси?</h3><span class="plus"></span></div>
@@ -506,7 +505,7 @@
     </div>
   </div>
 </dialog>
-<script src="js/script.js"></script>
+<script src="js/script.js?v=20261022"></script>
 <script src="js/viewer.js?v=20261009" defer></script>
 <script src="js/prices.js?v=20261010" defer></script>
 </body>

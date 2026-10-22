@@ -2717,7 +2717,7 @@ footer .logo {
   }
 }
 
-/* Самые узкие телефоны (до 360 px, iPhone SE первого поколения — 320): название «Самостоятельный» шире карточки,
+/* Самые узкие телефоны (до 360 px, iPhone SE первого поколения — 320): название «Самостоятельный» (прежнее имя) шире карточки,
    кнопка липкой полосы уезжала за край */
 @media (max-width: 360px) {
   .pname {
@@ -2739,7 +2739,7 @@ footer .logo {
   }
 }
 
-/* Две колонки тарифов (861 px и шире) не распираются длинной кнопкой «Оплатить «Самостоятельный»»: на 861–940 px
+/* Две колонки тарифов (861 px и шире) не распираются длинной кнопкой «Оплатить «Самостоятельный»» (прежнее имя): на 861–940 px
    правая карточка уезжала за край. Кнопка переносится, как на телефоне */
 @media (min-width: 861px) {
   .prices {
@@ -2899,4 +2899,93 @@ section[id] {
 .shot-pic:focus-visible {
   outline: 3px solid var(--strawberry);
   outline-offset: 3px;
+}
+
+/* ============================================
+   Линейка 22.10.2026: две карточки, гарантия и подписки у цены, строка «Студии», место под продающее видео
+   ============================================ */
+
+/* Ярлык второй карточки — спокойная подпись, а не «хит»: карточки одного веса */
+.price .tag {
+  background: #FFF4DA;
+  color: #8A6410;
+  border: 1px solid rgba(201, 150, 31, 0.32);
+  box-shadow: none;
+}
+
+/* Гарантия — сразу под ценой */
+.pguar {
+  margin: -12px 0 10px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #23735A;
+}
+
+/* Подписки на нейросети — рядом с ценой, а не последней строкой перед кнопкой */
+.psubs {
+  margin: 0 0 24px;
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+/* «Студия из одного» — строкой под карточками, через человека, без цены */
+.pstudio {
+  max-width: 640px;
+  margin: 26px auto 0;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.pstudio a {
+  color: var(--strawberry-deep);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* Продающее видео над тарифами: 16:9; без id видео блока нет (атрибут hidden), пустой плеер не показываем */
+.sales-video {
+  position: relative;
+  max-width: 880px;
+  margin: 0 auto 40px;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #2A1320;
+  box-shadow: var(--shadow-soft);
+}
+
+.sales-video[hidden] {
+  display: none;
+}
+
+.sales-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (max-width: 600px) {
+  .sales-video {
+    margin-bottom: 28px;
+    border-radius: var(--radius-md);
+  }
+}
+
+/* Название «Научиться и брать заказы» на телефоне в две строки — ровными половинами, а не одно слово на второй */
+.pname {
+  text-wrap: balance;
+}
+
+/* Пометка «Научиться и брать заказы» у модуля программы на телефоне шире заголовка: строчными она помещается
+   с 360 px, на 320 переносится внутри плашки, а не уезжает под «+» и за край (.acc обрезает) */
+@media (max-width: 420px) {
+  .acc-head .mod {
+    text-transform: none;
+    letter-spacing: 0.02em;
+    white-space: normal;
+    border-radius: 10px;
+  }
 }
