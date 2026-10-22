@@ -33,6 +33,16 @@
       put.push(['ref', ref]);
       if (/^\d{9,11}\.[A-Za-z0-9_-]{22}$/.test(rs)) put.push(['rs', rs]);
     }
+    /* Кто открыл страницу оплаты (22.10.2026): бот курса кладёт id человека и свою подпись ФРАГМЕНТОМ адреса
+       (#k=…&i=…) — фрагмент браузер на сервер не отправляет, и в журналы зарубежного хостинга id не попадает.
+       Кнопки несут его на страницу оплаты (наш домен) параметрами tgid и k: если оплата не дойдёт до конца, бот
+       через час спросит «что остановило?» именно этого человека. Подпись проверяет сервер; мусор не переносим. */
+    var h = new URLSearchParams((location.hash || '').replace(/^#/, ''));
+    var hk = h.get('k') || '', hi = h.get('i') || '';
+    if (/^\d{9,11}\.[A-Za-z0-9_-]{22}$/.test(hk) && /^\d{5,15}$/.test(hi)) {
+      put.push(['tgid', hi]);
+      put.push(['k', hk]);
+    }
     if (!put.length) return;
     var pay = document.querySelectorAll('a[data-pay]');
     for (var i = 0; i < pay.length; i++) {
@@ -44,6 +54,28 @@
   try {
     carryLabel();
   } catch (e) { /* старый браузер без URL — кнопки остаются как в разметке */ }
+
+  /* Бот курса ведёт на тарифы с тем, кто открыл ссылку, во фрагменте: #prices&k=…&i=… (23.10.2026). К такому адресу
+     браузер сам не листает — элемента с id «prices&k=…» нет, — поэтому листаем к первому слову фрагмента сами, сразу
+     и ещё раз после загрузки картинок. Человек успел прокрутить или нажать клавишу — второй раз не дёргаем. */
+  function scrollToSection() {
+    var parts = (location.hash || '').replace(/^#/, '').split('&');
+    if (parts.length < 2 || !/^[a-z][a-z0-9_-]{0,40}$/i.test(parts[0])) return;
+    var el = document.getElementById(parts[0]);
+    if (!el) return;
+    var moved = false;
+    var stop = function () { moved = true; };
+    window.addEventListener('wheel', stop, { passive: true, once: true });
+    window.addEventListener('touchstart', stop, { passive: true, once: true });
+    window.addEventListener('keydown', stop, { once: true });
+    el.scrollIntoView({ behavior: 'instant', block: 'start' });
+    window.addEventListener('load', function () {
+      if (!moved) el.scrollIntoView({ behavior: 'instant', block: 'start' });
+    }, { once: true });
+  }
+  try {
+    scrollToSection();
+  } catch (e) { /* старый браузер — остаётся первый экран */ }
 
   // Что не заполнил прайс — честная заглушка вместо «…».
   function fallback() {
