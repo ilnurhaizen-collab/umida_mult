@@ -413,23 +413,42 @@ html:not(.is-ended) .only-ended { display: none !important; }
     }
   }
 
+  // Прайс ни разу не пришёл — честная заглушка: в карточке «цена на странице оплаты», на кнопке просто «Оплатить».
+  // Если цены уже показаны, неудачное обновление их не трогает — иначе сбой сети погасил бы идущую скидку.
+  var applied = false;
   function fallback() {
+    if (applied) return;
     root.classList.add('is-off');
     var els = document.querySelectorAll('[data-price]');
-    for (var i = 0; i < els.length; i++) if (els[i].textContent.trim() === '…') els[i].textContent = 'цена на странице оплаты';
+    for (var i = 0; i < els.length; i++) {
+      if (els[i].textContent.trim() !== '…') continue;
+      els[i].textContent = els[i].closest('.btn') ? '' : 'цена на странице оплаты';
+    }
   }
 
-  function load() {
+  // Ревью 31.10: одна попытка с таймаутом 4 с на медленной сети оставляла страницу без скидки в последний день.
+  // Теперь до трёх попыток (сразу, через 2 и через 6 с) по 8 с каждая.
+  function load(attempt) {
+    attempt = attempt || 1;
     var ctl = typeof AbortController === 'function' ? new AbortController() : null;
-    var guard = setTimeout(function () { if (ctl) ctl.abort(); fallback(); }, 4000);
+    var guard = setTimeout(function () { if (ctl) ctl.abort(); }, 8000);
+    var retry = function () {
+      if (attempt < 3) setTimeout(function () { load(attempt + 1); }, attempt === 1 ? 2000 : 6000);
+      else fallback();
+    };
     fetch(API, { cache: 'no-store', signal: ctl ? ctl.signal : undefined })
       .then(function (r) { if (!r.ok) throw new Error('http ' + r.status); return r.json(); })
-      .then(function (b) { clearTimeout(guard); if (b && b.tiers && b.tiers.length) apply(b.tiers); else fallback(); })
-      .catch(function () { clearTimeout(guard); fallback(); });
+      .then(function (b) {
+        clearTimeout(guard);
+        if (b && b.tiers && b.tiers.length) { applied = true; apply(b.tiers); } else retry();
+      })
+      .catch(function () { clearTimeout(guard); retry(); });
   }
 
   root.classList.add('is-off');
   load();
+  // Раз в 10 минут сверяемся с прайсом: вкладка, открытая до начала скидки, включит её сама, а после конца — выключит.
+  setInterval(function () { load(); }, 10 * 60 * 1000);
 })();
 </script>
 </body>
