@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Скидка 20 % до 31 октября · ИИ-продакшн, курс Умиды</title>
+<meta name="description" content="Курс Умиды по ИИ-сериалам, мультикам и сказкам со скидкой 20 % до 23:59 по Москве 31 октября. Доступ вдвое дольше при оплате до конца скидки.">
+<!-- Временная страница акции: в поиск не отдаём, чтобы после 31.10 она не висела в выдаче со старым сроком. -->
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:url" content="https://umidanishanowa.com/skidka/">
+<meta property="og:title" content="Скидка 20 % на курс Умиды до 31 октября">
+<meta property="og:description" content="ИИ-сериалы, мультики и сказки с телефона. «Научиться и брать заказы» 4 000 ₽ вместо 4 999, «Научиться» 2 320 ₽ вместо 2 900.">
+<meta property="og:image" content="https://umidanishanowa.com/assets/img/hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../css/styles.css?v=20261023">
+<!-- Yandex.Metrika — тот же счётчик «Мультики» 113808734, что на главной сайта и на уян.рф: путь со страницы скидки
+     до оплаты виден одной воронкой. Свои заходы отсекаются так же, как на главной (?nometrika=1). -->
+<script type="text/javascript">
+(function () {
+  try {
+    var q = window.location.search || '';
+    try {
+      if (q.indexOf('nometrika=1') > -1) localStorage.setItem('uyan_no_metrika', '1');
+      if (q.indexOf('nometrika=0') > -1) localStorage.removeItem('uyan_no_metrika');
+      if (localStorage.getItem('uyan_no_metrika') === '1') return;
+    } catch (e) { /* приватный режим — считаем визит обычным */ }
+    if (/\/\/([a-z0-9-]+\.)*(metrika|metrica)\.yandex\.|\/\/([a-z0-9-]+\.)*webvisor\.com/i.test(document.referrer || '')) return;
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    var ss = document.scripts || [];
+    for (var j = 0; j < ss.length; j++) {if (ss[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js?id=113808734", "ym");
+    ym(113808734, "init", {webvisor:true, clickmap:true, accurateTrackBounce:true, trackLinks:true});
+  } catch (e) { /* счётчик не встал — на работу страницы это не влияет */ }
+})();
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113808734" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika -->
+<style>
+/* Страница скидки 31.10.2026. Общие цвета, шрифты, кнопки и карточки — из ../css/styles.css, здесь только своё.
+   🛑 Честная срочность (Principles_and_Taboos, табу 6): таймер считает до next_price.from из прайса api — той минуты,
+   когда касса сама вернёт обычную цену. Он не обнуляется и не продлевается: дошёл до нуля — страница говорит,
+   что скидка закончилась. Пока api скидку не прислал, страница показывает обычные цены и молчит о скидке. */
+.sk-sec { padding: 72px 0; }
+.sk-sec.alt { background: rgba(255, 255, 255, 0.45); }
+.sk-top {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding-block: 18px; /* только сверху и снизу: боковые 24 px даёт .wrap */
+}
+.sk-logo { font-family: var(--font-heading); font-weight: 700; font-size: 1rem; color: var(--text); text-decoration: none; }
+.sk-logo .sk-sub, .sk-logo .sk-dot { color: var(--strawberry-dark); }
+.sk-toplink { font-weight: 700; font-size: 0.9rem; color: var(--text-light); text-decoration: none; white-space: nowrap; }
+.sk-toplink:hover { color: var(--strawberry-dark); }
+
+.sk-hero { padding: 28px 0 64px; text-align: center; }
+.sk-hero h1 { font-size: clamp(1.9rem, 6vw, 3.4rem); max-width: 900px; margin: 18px auto 16px; }
+.sk-hero h1 em { font-style: normal; color: var(--strawberry-dark); }
+.sk-lead { font-size: clamp(1rem, 2.4vw, 1.2rem); color: var(--text-light); max-width: 680px; margin: 0 auto; }
+.sk-lead b { color: var(--text); }
+
+.sk-timer {
+  display: inline-flex; flex-direction: column; align-items: center; gap: 10px;
+  margin: 30px auto 0; padding: 22px 28px 20px; border-radius: var(--radius-lg);
+  background: var(--text); color: var(--white); box-shadow: 0 18px 40px rgba(42, 19, 32, 0.18);
+}
+.sk-timer-cap { font-family: var(--font-heading); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
+.sk-digits { display: flex; align-items: flex-start; gap: 10px; font-family: var(--font-heading); }
+.sk-cell { display: flex; flex-direction: column; align-items: center; min-width: 64px; }
+.sk-num { font-size: clamp(2.2rem, 9vw, 3.4rem); font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+.sk-unit { margin-top: 6px; font-family: var(--font-body); font-size: 0.8rem; font-weight: 600; color: rgba(255, 255, 255, 0.7); }
+.sk-colon { font-size: clamp(2rem, 8vw, 3rem); font-weight: 700; line-height: 1; opacity: 0.45; }
+.sk-deadline { font-size: 0.88rem; color: rgba(255, 255, 255, 0.78); }
+
+.sk-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 30px; }
+
+.sk-bonus {
+  max-width: 820px; margin: 28px auto 0; padding: 18px 22px; border-radius: var(--radius-md);
+  background: rgba(230, 178, 76, 0.18); border: 1px solid rgba(201, 150, 31, 0.35);
+  font-weight: 600; text-align: center;
+}
+.sk-bonus b { color: var(--strawberry-deep); }
+
+.sk-prices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; align-items: stretch; }
+.sk-price { padding: 36px; }
+.sk-badge {
+  position: absolute; top: -14px; right: 26px; padding: 7px 14px; border-radius: 100px;
+  background: linear-gradient(135deg, var(--strawberry) 0%, var(--strawberry-dark) 100%); color: var(--white);
+  font-family: var(--font-heading); font-size: 0.85rem; font-weight: 700; box-shadow: var(--shadow-soft);
+}
+.sk-old { display: block; font-family: var(--font-body); font-size: 1.05rem; font-weight: 600; color: var(--text-light); margin-bottom: 2px; }
+.sk-old s { text-decoration-thickness: 2px; }
+.sk-term { display: block; margin-top: 6px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; color: var(--text-light); }
+.sk-term b { color: var(--strawberry-deep); }
+.sk-price ul { list-style: none; }
+.sk-price li { display: flex; gap: 10px; }
+.sk-price .btn { width: 100%; }
+.sk-note { max-width: 760px; margin: 26px auto 0; text-align: center; font-size: 0.9rem; color: var(--text-light); }
+
+.sk-mods { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.sk-mod {
+  background: var(--white); border-radius: var(--radius-md); padding: 26px 24px; box-shadow: var(--shadow-card);
+  display: flex; flex-direction: column; gap: 10px;
+}
+.sk-mod h3 { font-size: 1.12rem; }
+.sk-meta { font-size: 0.82rem; font-weight: 700; color: var(--strawberry-dark); }
+.sk-mod p { font-size: 0.95rem; color: var(--text); }
+.sk-mod.wide { grid-column: span 2; }
+.sk-ways { display: grid; gap: 8px; margin-top: 4px; }
+.sk-way { padding: 12px 14px; border-radius: var(--radius-sm); background: rgba(255, 77, 119, 0.07); font-size: 0.92rem; }
+.sk-way b { display: block; }
+.sk-tag {
+  align-self: flex-start; padding: 4px 10px; border-radius: 100px; font-size: 0.75rem; font-weight: 700;
+  background: rgba(42, 19, 32, 0.07); color: var(--text-light);
+}
+.sk-honest { max-width: 820px; margin: 28px auto 0; text-align: center; color: var(--text-light); font-size: 0.92rem; }
+
+.sk-shots { display: grid; grid-template-columns: repeat(3, minmax(0, 230px)); justify-content: center; gap: 28px; }
+
+.sk-final { text-align: center; }
+.sk-final h2 { font-size: clamp(1.6rem, 4.6vw, 2.4rem); max-width: 760px; margin: 14px auto 12px; }
+
+.sk-foot { padding: 34px 0 48px; text-align: center; font-size: 0.85rem; color: var(--text-light); }
+.sk-foot a, .sk-final .pay-note a { color: var(--text-light); text-decoration: underline; text-underline-offset: 3px; }
+.sk-final .pay-note a { color: var(--strawberry-dark); }
+.sk-foot p + p { margin-top: 8px; }
+
+/* Состояния страницы: что видно, решает прайс api. Прячем только в «чужом» состоянии, а показанное сохраняет свой
+   display (ярлык — inline-flex, таймер — inline-flex): revert вернул бы браузерный и сломал вид. */
+html:not(.is-live) .only-live { display: none !important; }
+html.is-live .only-off { display: none !important; }
+html:not(.is-ended) .only-ended { display: none !important; }
+/* .sk-old — display:block, он сильнее атрибута hidden: без этого пустая зачёркнутая строка была бы видна */
+.sk-old[hidden] { display: none; }
+
+@media (max-width: 860px) {
+  .sk-mods { grid-template-columns: 1fr 1fr; }
+  .sk-mod.wide { grid-column: span 2; }
+}
+@media (max-width: 720px) {
+  .sk-sec { padding: 52px 0; }
+  .sk-prices { grid-template-columns: 1fr; gap: 34px; }
+  .sk-price { padding: 30px 24px; }
+  .sk-mods { grid-template-columns: 1fr; }
+  .sk-mod.wide { grid-column: auto; }
+  .sk-shots { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+  .sk-shots .shot img { border-width: 4px; border-radius: 18px; }
+  .sk-shots .shot figcaption { font-family: var(--font-body); font-size: 0.8rem; line-height: 1.3; }
+  .sk-cta .btn { width: 100%; padding: 16px 20px; }
+  /* «Научиться и брать заказы · 4 000 ₽» на 320 px шире экрана: кнопке можно в две строки */
+  .sk-cta .btn, .sk-cta .btn span { white-space: normal; text-align: center; }
+  .sk-cell { min-width: 52px; }
+  .sk-timer { padding: 18px 16px 16px; }
+  .sk-logo { font-size: 0.86rem; }
+  .sk-logo .sk-dot { display: none; }
+  .sk-logo .sk-sub { display: block; }
+}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="wrap sk-top">
+  <a class="sk-logo" href="../">ИИ-продакшн<span class="sk-dot"> · </span><span class="sk-sub">курс Умиды</span></a>
+  <a class="sk-toplink" href="../#program">Вся программа</a>
+</div>
+
+<!-- ПЕРВЫЙ ЭКРАН -->
+<section class="sk-hero">
+  <div class="wrap">
+    <span class="eyebrow only-live">Последний день скидки</span>
+    <span class="eyebrow only-ended">Скидка закончилась 31 октября</span>
+    <h1 class="only-live">Курс Умиды по ИИ‑роликам <em>со скидкой 20&nbsp;%</em></h1>
+    <h1 class="only-off">Курс Умиды по ИИ‑роликам с телефона</h1>
+    <p class="sk-lead">Сериалы, мультики и сказки в нейросетях с нуля: от первого кадра до готовой серии. Всё по шагам, с телефона, в Telegram.</p>
+
+    <div class="sk-timer only-live" role="timer" aria-live="off">
+      <span class="sk-timer-cap">До конца скидки</span>
+      <div class="sk-digits">
+        <div class="sk-cell"><span class="sk-num" data-t="h">00</span><span class="sk-unit">часов</span></div>
+        <span class="sk-colon">:</span>
+        <div class="sk-cell"><span class="sk-num" data-t="m">00</span><span class="sk-unit">минут</span></div>
+        <span class="sk-colon">:</span>
+        <div class="sk-cell"><span class="sk-num" data-t="s">00</span><span class="sk-unit">секунд</span></div>
+      </div>
+      <span class="sk-deadline" data-deadline-text>до 23:59 по Москве, 31 октября</span>
+    </div>
+
+    <div class="sk-cta">
+      <a class="btn" href="#tarify"><span>Выбрать тариф</span></a>
+      <a class="btn btn-ghost" href="#vnutri"><span>Что внутри курса</span></a>
+    </div>
+
+    <p class="sk-bonus only-live">Оплатите до конца скидки, и доступ будет <b>вдвое дольше</b>: 12 месяцев вместо 6 или 6 месяцев вместо 3.</p>
+  </div>
+</section>
+
+<!-- ТАРИФЫ -->
+<section id="tarify" class="sk-sec alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Тарифы</span>
+      <h2>Два формата. Разница в одном: учиться для себя или ещё и брать заказы</h2>
+    </div>
+    <div class="sk-prices">
+      <div class="price sk-price">
+        <span class="sk-badge only-live">−20&nbsp;%</span>
+        <div class="pname">Научиться и брать заказы</div>
+        <div class="pcost">
+          <span class="sk-old" data-was="multiki_ai" hidden><s></s></span>
+          <span data-price="multiki_ai">…</span>
+          <span class="sk-term">доступ 6 месяцев<span class="only-live">, при оплате сегодня <b>12 месяцев</b></span></span>
+        </div>
+        <ul>
+          <li><span class="ck">✓</span><span>Всё, что в «Научиться»</span></li>
+          <li><span class="ck">✓</span><span>Модуль «Деньги»: где искать первых заказчиков, сколько брать за ролик и серию, как вести переписку и не переделывать бесплатно</span></li>
+          <li><span class="ck">✓</span><span>Модуль «Воронка и Telegram-канал»: куда вести человека после ролика, канал как витрина ваших работ</span></li>
+          <li><span class="ck">✓</span><span>Полуавтоматизация: генерацию и сборку серии делают нейросети по шаблону, вы ставите задачу и утверждаете</span></li>
+        </ul>
+        <a class="btn" data-pay="multiki_ai" href="https://xn--m1al0b.xn--p1ai/multiki.html?tier=multiki_ai&amp;cp=skidka&amp;src=umida_site" target="_blank" rel="noopener"><span>Оплатить <span data-price="multiki_ai">…</span></span></a>
+      </div>
+      <div class="price sk-price">
+        <span class="sk-badge only-live">−20&nbsp;%</span>
+        <div class="pname">Научиться</div>
+        <div class="pcost">
+          <span class="sk-old" data-was="multiki_mini" hidden><s></s></span>
+          <span data-price="multiki_mini">…</span>
+          <span class="sk-term">доступ 3 месяца<span class="only-live">, при оплате сегодня <b>6 месяцев</b></span></span>
+        </div>
+        <ul>
+          <li><span class="ck">✓</span><span>Все три способа: реалистичные сериалы, мультики по методу Умиды, сказки</span></li>
+          <li><span class="ck">✓</span><span>Старт: какие нейросети нужны и как оплатить их из России и Беларуси</span></li>
+          <li><span class="ck">✓</span><span>Продвижение: шапка профиля, сторис, карусели, сто хуков, план публикаций на месяц</span></li>
+          <li><span class="ck">✓</span><span>ИИ-наставник отвечает в любое время и разбирает вашу серию по кадрам: где герой поплыл, что переделать</span></li>
+          <li><span class="ck">✓</span><span>Книга курса: все шаги и промпты в одном файле</span></li>
+        </ul>
+        <a class="btn" data-pay="multiki_mini" href="https://xn--m1al0b.xn--p1ai/multiki.html?tier=multiki_mini&amp;cp=skidka&amp;src=umida_site" target="_blank" rel="noopener"><span>Оплатить <span data-price="multiki_mini">…</span></span></a>
+      </div>
+    </div>
+    <p class="sk-note">Все уроки открыты сразу. Подписки на нейросети в цену не входят, их оплачиваете сервисам напрямую: на старте около 50 $ в месяц (ChatGPT и SuperGrok). Наставник — это программа, собранная по урокам Умиды, а не Умида лично.</p>
+  </div>
+</section>
+
+<!-- ЧТО ВНУТРИ -->
+<section id="vnutri" class="sk-sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Программа</span>
+      <h2>Что вы сделаете на курсе</h2>
+      <p>Больше 50 уроков. Под каждым видео текст и готовые промпты, которые копируются одним касанием.</p>
+    </div>
+    <div class="sk-mods">
+      <div class="sk-mod">
+        <span class="sk-meta">8 уроков · около 2 часов</span>
+        <h3>Старт</h3>
+        <p>Поставите ChatGPT и Grok на телефон, разберётесь, как оплатить подписки из России, и сделаете первый кадр, где герой говорит.</p>
+      </div>
+      <div class="sk-mod wide">
+        <span class="sk-meta">Выбираете один, какой ближе</span>
+        <h3>Три способа сделать серию</h3>
+        <div class="sk-ways">
+          <div class="sk-way"><b>Реалистичные сериалы · 13 уроков</b>Первая серия за 2–3 вечера, план сезона на 20 серий, музыка и монтаж с телефона.</div>
+          <div class="sk-way"><b>Мультики по методу Умиды · 8 уроков</b>Первая серия за 4–4,5 часа. Герои не «плывут» от кадра к кадру, речь попадает в губы.</div>
+          <div class="sk-way"><b>Сказки в Seedance · 6 уроков</b>Сказка на 2 минуты примерно за 5 часов: голос диктора, раскадровка, анимация, монтаж.</div>
+        </div>
+      </div>
+      <div class="sk-mod">
+        <span class="sk-meta">5 уроков</span>
+        <h3>Продвижение</h3>
+        <p>Шапка профиля, сторис, карусели через ChatGPT, сто хуков и план публикаций на четыре недели.</p>
+      </div>
+      <div class="sk-mod">
+        <span class="sk-tag">Научиться и брать заказы</span>
+        <span class="sk-meta">8 уроков</span>
+        <h3>Деньги</h3>
+        <p>Где искать первых заказчиков, сколько брать за ролик и серию, как говорить с клиентом и вести переписку с брендами.</p>
+      </div>
+      <div class="sk-mod">
+        <span class="sk-tag">Научиться и брать заказы</span>
+        <span class="sk-meta">5 уроков</span>
+        <h3>Воронка и Telegram-канал</h3>
+        <p>Куда вести человека после ролика, чем удержать в канале и как канал становится витриной ваших работ.</p>
+      </div>
+      <div class="sk-mod">
+        <span class="sk-tag">Научиться и брать заказы</span>
+        <span class="sk-meta">6 уроков</span>
+        <h3>Полуавтоматизация</h3>
+        <p>Новая серия одним сообщением: нейросети собирают кадры и монтаж по шаблону, вы проверяете и утверждаете.</p>
+      </div>
+    </div>
+    <p class="sk-honest">Пять уроков ещё записываются: три в разделах сериалов и мультиков и два последних в «Деньгах». Курс проходится и без них, а когда они выйдут, появятся в кабинете сами. Гарантий дохода курс не даёт: сколько заработаете, зависит от того, сколько серий выпустите и как будете их показывать.</p>
+  </div>
+</section>
+
+<!-- КАБИНЕТ -->
+<section class="sk-sec alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Как это выглядит</span>
+      <h2>Не папка с видео, а кабинет, который ведёт по шагам</h2>
+      <p>Открывается прямо в Telegram и помнит, где вы остановились. Застряли в три часа ночи? Спросите наставника, он знает каждый урок.</p>
+    </div>
+    <div class="sk-shots">
+      <figure class="shot"><img src="../assets/img/kab-uroki.jpg" width="540" height="1168" alt="Экран «Уроки»: прогресс по модулям и кнопка «Продолжить урок»" loading="lazy" decoding="async"><figcaption>Уроки и прогресс</figcaption></figure>
+      <figure class="shot"><img src="../assets/img/kab-prompt.jpg" width="540" height="1168" alt="Готовый промпт урока с кнопкой «Скопировать»" loading="lazy" decoding="async"><figcaption>Промпт в одно касание</figcaption></figure>
+      <figure class="shot"><img src="../assets/img/kab-nastavnik.jpg?v=20261023" width="540" height="1168" alt="Вкладка «ИИ-наставник»: примеры вопросов и поле для своего" loading="lazy" decoding="async"><figcaption>ИИ‑наставник</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ГАРАНТИЯ И ФИНАЛ -->
+<section class="sk-sec sk-final">
+  <div class="wrap">
+    <div class="guarantee">
+      <span class="g-chip">Гарантия</span>
+      <h3>7 дней, чтобы понять: подходит или нет</h3>
+      <p>Зайдите внутрь, посмотрите уроки и промпты. Если поймёте, что не ваше, напишите в <a href="https://t.me/MULTIKIAI_BOT?start=cp_skidka" target="_blank" rel="noopener">бот курса</a>, и мы вернём всю сумму. Без допросов.</p>
+    </div>
+    <span class="eyebrow only-live" style="margin-top:44px">Скидка до 23:59 по Москве, 31 октября</span>
+    <h2 class="only-live">Цена со скидкой действует до конца дня. С&nbsp;1&nbsp;ноября обычная</h2>
+    <h2 class="only-off" style="margin-top:44px">Выберите формат и начните сегодня</h2>
+    <div class="sk-cta">
+      <a class="btn" data-pay="multiki_ai" href="https://xn--m1al0b.xn--p1ai/multiki.html?tier=multiki_ai&amp;cp=skidka&amp;src=umida_site" target="_blank" rel="noopener"><span>Научиться и брать заказы · <span data-price="multiki_ai">…</span></span></a>
+      <a class="btn btn-ghost" data-pay="multiki_mini" href="https://xn--m1al0b.xn--p1ai/multiki.html?tier=multiki_mini&amp;cp=skidka&amp;src=umida_site" target="_blank" rel="noopener"><span>Научиться · <span data-price="multiki_mini">…</span></span></a>
+    </div>
+    <p class="pay-note">Оплата картой российского банка или через СБП, чек придёт на почту. Вход в кабинет пришлёт бот курса в Telegram, обычно сразу после оплаты.<br><a href="https://t.me/MULTIKIAI_BOT?start=cp_skidka" target="_blank" rel="noopener">Есть вопрос? Напишите в бот</a>, там отвечает Ильнур, партнёр Умиды по курсу.</p>
+  </div>
+</section>
+
+<footer class="sk-foot">
+  <div class="wrap">
+    <p>Услугу оказывает ООО «ОЧНИСЬ». Условия — в <a href="https://xn--m1al0b.xn--p1ai/offer-multiki.html" target="_blank" rel="noopener">оферте</a>. <a href="../privacy.html">Политика обработки данных</a>.</p>
+    <p><a href="../">Полная страница курса</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Цены, зачёркнутая цена и конец скидки — только из прайса api, тем же маршрутом, что главная сайта (js/prices.js).
+  // Скидку показываем, только если api прислал обычную цену выше той, что платят, и минуту, когда цена вернётся.
+  var API = 'https://api.xn--m1al0b.xn--p1ai/api/payment/tiers/multiki';
+  var IDS = ['multiki_ai', 'multiki_mini'];
+  var root = document.documentElement;
+  var timerId = null;
+
+  function fmt(n) { return Math.round(n).toLocaleString('ru-RU') + ' ₽'; }
+  function two(n) { return (n < 10 ? '0' : '') + n; }
+
+  function deadlineText(endMs) {
+    // Последняя секунда скидки — за секунду до перехода, в поясе Москвы.
+    var d = new Date(endMs - 1000);
+    try {
+      var t = d.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Moscow' });
+      var day = d.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', timeZone: 'Europe/Moscow' });
+      return 'до ' + t + ' по Москве, ' + day;
+    } catch (e) { return 'до 23:59 по Москве, 31 октября'; }
+  }
+
+  function tick(endMs) {
+    var left = Math.max(0, endMs - Date.now());
+    var h = Math.floor(left / 3600000), m = Math.floor(left % 3600000 / 60000), s = Math.floor(left % 60000 / 1000);
+    var els = document.querySelectorAll('[data-t]');
+    for (var i = 0; i < els.length; i++) {
+      var k = els[i].getAttribute('data-t');
+      els[i].textContent = two(k === 'h' ? h : k === 'm' ? m : s);
+    }
+    if (left === 0) {
+      // Срок вышел: таймер не перезапускаем. Через пару секунд спрашиваем прайс заново — api уже вернул обычную цену.
+      clearInterval(timerId);
+      setTimeout(load, 2500);
+    }
+  }
+
+  function apply(tiers) {
+    var live = false, endMs = 0;
+    for (var i = 0; i < tiers.length; i++) {
+      var t = tiers[i];
+      if (!t || IDS.indexOf(t.id) < 0 || typeof t.price_rub !== 'number' || !(t.price_rub > 0)) continue;
+      var price = document.querySelectorAll('[data-price="' + t.id + '"]');
+      for (var j = 0; j < price.length; j++) price[j].textContent = fmt(t.price_rub);
+      var hasList = typeof t.list_price_rub === 'number' && t.list_price_rub > t.price_rub;
+      var was = document.querySelectorAll('[data-was="' + t.id + '"]');
+      for (var k = 0; k < was.length; k++) {
+        var s = was[k].querySelector('s');
+        if (s) s.textContent = hasList ? fmt(t.list_price_rub) : '';
+        was[k].hidden = !hasList;
+      }
+      var pay = document.querySelectorAll('a[data-pay="' + t.id + '"]');
+      for (var p = 0; p < pay.length; p++) {
+        try { var u = new URL(pay[p].href); u.searchParams.set('p', String(Math.round(t.price_rub))); pay[p].href = u.toString(); } catch (e) { /* ссылка остаётся без p */ }
+      }
+      var next = t.next_price && Date.parse(t.next_price.from);
+      if (hasList && next && next > Date.now()) { live = true; endMs = endMs ? Math.min(endMs, next) : next; }
+    }
+    root.classList.remove('is-live', 'is-off', 'is-ended');
+    if (live) {
+      root.classList.add('is-live');
+      var dt = document.querySelectorAll('[data-deadline-text]');
+      for (var d = 0; d < dt.length; d++) dt[d].textContent = deadlineText(endMs);
+      clearInterval(timerId);
+      tick(endMs);
+      timerId = setInterval(function () { tick(endMs); }, 1000);
+    } else {
+      root.classList.add('is-off');
+      // Объявленный срок скидки прошёл — честно говорим, что она закончилась, а не прячем.
+      if (Date.now() >= Date.parse('2026-11-01T00:00:00+03:00')) root.classList.add('is-ended');
+    }
+  }
+
+  function fallback() {
+    root.classList.add('is-off');
+    var els = document.querySelectorAll('[data-price]');
+    for (var i = 0; i < els.length; i++) if (els[i].textContent.trim() === '…') els[i].textContent = 'цена на странице оплаты';
+  }
+
+  function load() {
+    var ctl = typeof AbortController === 'function' ? new AbortController() : null;
+    var guard = setTimeout(function () { if (ctl) ctl.abort(); fallback(); }, 4000);
+    fetch(API, { cache: 'no-store', signal: ctl ? ctl.signal : undefined })
+      .then(function (r) { if (!r.ok) throw new Error('http ' + r.status); return r.json(); })
+      .then(function (b) { clearTimeout(guard); if (b && b.tiers && b.tiers.length) apply(b.tiers); else fallback(); })
+      .catch(function () { clearTimeout(guard); fallback(); });
+  }
+
+  root.classList.add('is-off');
+  load();
+})();
+</script>
+</body>
+</html>
